@@ -74,7 +74,7 @@ export function SiteHeader() {
             )}
             decoding="async"
           />
-          <span className="font-display hidden min-w-0 truncate text-lg tracking-tight text-ink md:block md:text-xl">
+          <span className="font-display min-w-0 truncate text-base tracking-tight text-ink sm:text-lg md:text-xl">
             {companyInfo.name}
           </span>
         </Link>

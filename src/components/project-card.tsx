@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import type { Project } from "@/data/projects";
-import { QuoteDialog } from "./quote-dialog";
 
 type Props = {
   project: Project;
@@ -53,9 +52,6 @@ export function ProjectCard({ project, index, shuffleIntervalMs = 3000 }: Props)
         <div className="space-y-3 p-6">
           <div className="flex items-baseline justify-between gap-4">
             <h3 className="font-display text-2xl text-ink">{project.name}</h3>
-            <span className="text-xs tabular-nums text-muted-foreground">
-              {project.year}
-            </span>
           </div>
           <p className="text-sm leading-relaxed text-muted-foreground">
             {project.tagline}
@@ -64,14 +60,12 @@ export function ProjectCard({ project, index, shuffleIntervalMs = 3000 }: Props)
       </Link>
 
       <div className="mt-4 flex justify-end px-1">
-        <QuoteDialog
-          project={project}
-          trigger={
-            <button className="micro-link text-xs font-medium uppercase tracking-wider text-ink underline-offset-4 hover:text-primary">
-              Get a quote →
-            </button>
-          }
-        />
+        <Link
+          to="/contact"
+          className="micro-link text-xs font-medium uppercase tracking-wider text-ink underline-offset-4 hover:text-primary"
+        >
+          Get a quote →
+        </Link>
       </div>
     </article>
   );

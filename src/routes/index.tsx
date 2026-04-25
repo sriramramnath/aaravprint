@@ -129,6 +129,14 @@ function Index() {
               <ProjectCard key={p.slug} project={p} index={i} />
             ))}
           </div>
+          <div className="mt-14 flex justify-center">
+            <Link
+              to="/work"
+              className="micro-lift inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 text-sm font-medium text-ink-foreground transition-base hover:shadow-elevated"
+            >
+              View all products →
+            </Link>
+          </div>
         </div>
       </section>
 

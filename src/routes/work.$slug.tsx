@@ -1,7 +1,6 @@
 import { createFileRoute, Link, notFound, useRouter } from "@tanstack/react-router";
 import { getProject, projects } from "@/data/projects";
 import { ProjectCarousel } from "@/components/project-carousel";
-import { QuoteDialog } from "@/components/quote-dialog";
 import { formatInr } from "@/lib/utils";
 
 export const Route = createFileRoute("/work/$slug")({
@@ -85,14 +84,12 @@ function ProjectDetail() {
             <p className="mt-2 font-display text-4xl text-ink">
               {formatInr(project.startingPrice)}
             </p>
-            <QuoteDialog
-              project={project}
-              trigger={
-                <button className="micro-lift mt-5 inline-flex items-center gap-2 rounded-full bg-highlight px-6 py-3 text-sm font-medium text-highlight-foreground transition-base hover:shadow-glow">
-                  Get a quote →
-                </button>
-              }
-            />
+            <Link
+              to="/contact"
+              className="micro-lift mt-5 inline-flex items-center gap-2 rounded-full bg-highlight px-6 py-3 text-sm font-medium text-highlight-foreground transition-base hover:shadow-glow"
+            >
+              Get a quote →
+            </Link>
           </div>
         </div>
       </section>
@@ -144,14 +141,12 @@ function ProjectDetail() {
           <h2 className="mt-4 font-display text-5xl text-ink md:text-7xl text-balance">
             Need something <em className="italic text-primary">similar?</em>
           </h2>
-          <QuoteDialog
-            project={project}
-            trigger={
-              <button className="micro-lift mt-10 inline-flex items-center gap-3 rounded-full bg-ink px-8 py-4 text-sm font-medium text-ink-foreground transition-base hover:shadow-elevated">
-                Request a quote for {project.name} →
-              </button>
-            }
-          />
+          <Link
+            to="/contact"
+            className="micro-lift mt-10 inline-flex items-center gap-3 rounded-full bg-ink px-8 py-4 text-sm font-medium text-ink-foreground transition-base hover:shadow-elevated"
+          >
+            Request a quote for {project.name} →
+          </Link>
         </div>
       </section>
 
