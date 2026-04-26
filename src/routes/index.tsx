@@ -44,7 +44,7 @@ function Index() {
         />
         <div
           aria-hidden
-          className="absolute inset-0 -z-10 bg-[linear-gradient(176deg,rgba(249,247,238,0.12)_0%,rgba(249,247,238,0.06)_40.75%,rgba(249,247,238,1)_41.05%,rgba(249,247,238,1)_100%)] md:bg-[linear-gradient(176deg,rgba(249,247,238,0.12)_0%,rgba(249,247,238,0.06)_82%,rgba(249,247,238,1)_82.3%,rgba(249,247,238,1)_100%)]"
+          className="absolute inset-0 -z-10 bg-[linear-gradient(176deg,rgba(249,247,238,0.12)_0%,rgba(249,247,238,0.06)_33.75%,rgba(249,247,238,1)_34.05%,rgba(249,247,238,1)_100%)] md:bg-[linear-gradient(176deg,rgba(249,247,238,0.12)_0%,rgba(249,247,238,0.06)_82%,rgba(249,247,238,1)_82.3%,rgba(249,247,238,1)_100%)]"
         />
         <img
           aria-hidden
@@ -58,7 +58,7 @@ function Index() {
         <div className="container-editorial">
           <div className="grid items-start gap-10 lg:grid-cols-[1.08fr_0.92fr]">
             <div className="animate-float-up px-1 pt-10 md:pt-8 lg:pt-6">
-              <div className="h-[25rem] sm:h-[30rem] md:hidden" aria-hidden />
+              <div className="h-[20rem] sm:h-[24rem] md:hidden" aria-hidden />
 
               <div className="mt-6 flex flex-wrap items-center gap-4 md:order-3 md:mt-6">
                 <Link
@@ -102,11 +102,11 @@ function Index() {
                     key={item.title}
                     className="rounded-2xl border border-ink/12 bg-white/88 p-3 shadow-soft backdrop-blur sm:p-5"
                   >
-                    <div className="flex items-start gap-2.5 sm:gap-3">
-                      <div className="flex size-9 shrink-0 items-center justify-center rounded-full bg-white/95 text-highlight shadow-soft sm:size-11">
+                    <div className="flex flex-col items-start gap-2.5 md:flex-row md:gap-3">
+                      <div className="mx-auto flex size-9 shrink-0 items-center justify-center rounded-full bg-white/95 text-highlight shadow-soft md:mx-0 sm:size-11">
                         <item.icon className="size-4 sm:size-5" strokeWidth={2.2} />
                       </div>
-                      <div>
+                      <div className="w-full">
                         <h2 className="whitespace-pre-line font-display text-[1.55rem] leading-[0.92] text-ink sm:text-[2rem]">
                           {item.title}
                         </h2>
