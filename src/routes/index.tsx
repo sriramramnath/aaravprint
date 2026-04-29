@@ -108,9 +108,7 @@ function Index() {
         <div className="container-editorial">
           <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
             <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
-                From our shop floor
-              </p>
+              <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Our work</p>
               <h2 className="mt-4 font-display text-5xl leading-[0.95] text-ink md:text-7xl">
                 Featured <em className="italic text-primary">work</em>.
               </h2>
@@ -151,16 +149,16 @@ function Index() {
                 <span className="italic text-highlight">under one roof.</span>
               </h2>
               <p className="mt-6 max-w-md text-ink-foreground/70">
-                We work with shop owners, contractors, and event teams — from material choice and
-                print to mounting and on-site install when you need it.
+                We help shop owners, contractors, and event teams with material selection, printing,
+                fitting, and on-site installation when needed.
               </p>
             </div>
             <ul className="grid gap-x-12 gap-y-10 md:col-span-7 md:grid-cols-2">
               {[
-                { n: "01", t: "Illuminated signs", d: "LED, backlit flex, and lightboxes." },
-                { n: "02", t: "Facade & ACP", d: "Panels, canopies, and outdoor durability." },
-                { n: "03", t: "Vinyl & pasting", d: "Fleet, glass, and high-tack wraps." },
-                { n: "04", t: "Events & retail", d: "Rollups, backdrops, promo tables, and more." },
+                { n: "01", t: "Illuminated signs", d: "LED boards, backlit flex, and light boxes." },
+                { n: "02", t: "Facade & ACP", d: "Panels, canopies, and signs made for outdoor use." },
+                { n: "03", t: "Vinyl & pasting", d: "Vinyl for vehicles, glass, and strong wrap jobs." },
+                { n: "04", t: "Events & retail", d: "Roll-ups, backdrops, promo tables, and more." },
               ].map((s) => (
                 <li key={s.n} className="border-t border-ink-foreground/15 pt-5">
                   <p className="font-display text-sm tabular-nums text-highlight">{s.n}</p>
@@ -183,7 +181,7 @@ function Index() {
             <em className="italic text-primary"> install without fuss.</em>"
           </blockquote>
           <p className="mt-10 text-sm text-muted-foreground">
-            Local retail client — mix of signage &amp; print
+            Local retail client - signage and print work
           </p>
         </div>
       </section>

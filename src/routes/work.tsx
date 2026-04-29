@@ -29,7 +29,7 @@ function WorkPage() {
           Real <em className="italic text-primary">signage</em> from our
           <span className="relative inline-block">
             <span className="absolute -bottom-1 left-0 h-3 w-full -skew-x-6 bg-highlight -z-0" />
-            <span className="relative px-2"> floor </span>
+            <span className="relative px-2"> store </span>
           </span>
         </h1>
         <p className="mt-6 max-w-2xl text-muted-foreground md:text-lg">

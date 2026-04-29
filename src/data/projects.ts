@@ -378,7 +378,7 @@ export const projects: Project[] = [
   },
   {
     slug: "assorted",
-    name: "More from our shop floor",
+    name: "More of our work",
     client: "Aarav Signboard",
     category: "General print & signage",
     year: "2024",
