@@ -59,7 +59,7 @@ function Index() {
         />
         <div
           aria-hidden
-          className="absolute inset-0 -z-20 bg-[linear-gradient(180deg,rgba(255,255,255,0.76)_0%,rgba(255,255,255,0.68)_35%,rgba(249,247,238,0.78)_100%)]"
+          className="absolute inset-0 -z-20 bg-[linear-gradient(180deg,rgba(253,212,6,0.84)_0%,rgba(253,212,6,0.78)_38%,rgba(253,212,6,0.72)_100%)]"
         />
 
         <div className="container-editorial">
@@ -77,10 +77,6 @@ function Index() {
                     <span className="italic text-primary">Quality</span>{" "}
                     <span className="text-ink">prints.</span>
                   </p>
-                  <span
-                    aria-hidden
-                    className="absolute -bottom-2.5 left-[8%] h-1.5 w-[84%] bg-highlight md:-bottom-3"
-                  />
                 </div>
               </div>
 
