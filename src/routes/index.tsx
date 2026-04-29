@@ -1,9 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { PenLine, ShieldCheck, Wrench, Award } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
 import { projects, homeHeroImage } from "@/data/projects";
 import { ProjectCard } from "@/components/project-card";
 import { companyInfo } from "@/lib/company";
-import billboardImage from "@/assets/image.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -25,42 +24,71 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const featured = projects.slice(0, 4);
+  const heroShuffleImages = useMemo(() => {
+    const unique = Array.from(new Set(projects.flatMap((project) => project.images)));
+    return unique;
+  }, []);
+  const [activeShuffle, setActiveShuffle] = useState(0);
+
+  useEffect(() => {
+    if (heroShuffleImages.length <= 1) return;
+    const timer = window.setInterval(() => {
+      setActiveShuffle((prev) => {
+        if (heroShuffleImages.length <= 1) return 0;
+        let next = prev;
+        while (next === prev) {
+          next = Math.floor(Math.random() * heroShuffleImages.length);
+        }
+        return next;
+      });
+    }, 2200);
+    return () => window.clearInterval(timer);
+  }, [heroShuffleImages]);
+
+  const activeImage = heroShuffleImages[activeShuffle] ?? homeHeroImage;
 
   return (
     <div>
       {/* HERO */}
-      <section className="relative isolate overflow-hidden bg-background pb-16 pt-8 md:pb-20 md:pt-10">
-        <div
-          aria-hidden
-          className="absolute inset-0 -z-30 bg-[radial-gradient(130%_100%_at_8%_0%,#fff9b0_0%,#facc15_22%,#60a5fa_52%,#2563eb_72%,#1e3a8a_100%)]"
-        />
-        <div
-          aria-hidden
-          className="absolute -left-28 top-10 -z-20 h-[24rem] w-[24rem] rounded-full bg-yellow-300/65 blur-3xl"
-        />
-        <div
-          aria-hidden
-          className="absolute -right-16 top-8 -z-20 h-[26rem] w-[26rem] rounded-full bg-sky-300/55 blur-3xl"
-        />
-        <div
-          aria-hidden
-          className="absolute inset-0 -z-10 bg-[linear-gradient(176deg,rgba(249,247,238,0.12)_0%,rgba(249,247,238,0.06)_33.75%,rgba(249,247,238,1)_34.05%,rgba(249,247,238,1)_100%)] md:bg-[linear-gradient(176deg,rgba(249,247,238,0.12)_0%,rgba(249,247,238,0.06)_82%,rgba(249,247,238,1)_82.3%,rgba(249,247,238,1)_100%)]"
-        />
+      <section className="relative isolate overflow-hidden bg-background pb-16 pt-12 md:pb-20 md:pt-14">
         <img
           aria-hidden
-          src={billboardImage}
+          src={activeImage}
           alt=""
-          width={1024}
-          height={683}
-          className="pointer-events-none absolute left-1/2 top-12 -z-20 w-[90vw] -translate-x-1/2 select-none object-contain opacity-95 md:left-auto md:top-auto md:w-[min(46vw,34rem)] md:translate-x-0 md:bottom-[10%] md:right-4 lg:bottom-[9%] lg:right-10 lg:w-[min(42vw,36rem)]"
+          className="absolute inset-0 -z-30 h-full w-full object-cover"
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 -z-20 bg-[linear-gradient(180deg,rgba(255,255,255,0.76)_0%,rgba(255,255,255,0.68)_35%,rgba(249,247,238,0.78)_100%)]"
         />
 
         <div className="container-editorial">
-          <div className="grid items-start gap-10 lg:grid-cols-[1.08fr_0.92fr]">
-            <div className="animate-float-up px-1 pt-10 md:pt-8 lg:pt-6">
-              <div className="h-[20rem] sm:h-[24rem] md:hidden" aria-hidden />
+          <div className="relative flex min-h-[31rem] items-center justify-center py-6 md:min-h-[40rem] md:py-10">
+            <div className="animate-float-up relative z-20 flex max-w-4xl flex-col items-center px-1 pt-2 text-center md:pt-4">
+              <div className="space-y-1 font-display text-[clamp(3rem,10vw,7.5rem)] leading-[0.9] tracking-[-0.045em] text-ink">
+                <div className="relative inline-block">
+                  <p>
+                    <span className="italic text-primary">Clear</span>{" "}
+                    <span className="text-ink">signs.</span>
+                  </p>
+                </div>
+                <div className="relative inline-block pt-1.5">
+                  <p>
+                    <span className="italic text-primary">Quality</span>{" "}
+                    <span className="text-ink">prints.</span>
+                  </p>
+                  <span
+                    aria-hidden
+                    className="absolute -bottom-2.5 left-[8%] h-1.5 w-[84%] bg-highlight md:-bottom-3"
+                  />
+                </div>
+              </div>
 
-              <div className="mt-6 flex flex-wrap items-center gap-4 md:order-3 md:mt-6">
+              <p className="mt-8 max-w-2xl text-base leading-relaxed text-ink/80 md:text-lg">
+                Premium sign boards, print, and installation crafted for visibility that lasts.
+              </p>
+
+              <div className="mt-6 flex flex-wrap items-center justify-center gap-4 md:mt-7">
                 <Link
                   to="/work"
                   className="micro-lift inline-flex items-center gap-2 rounded-full bg-ink px-7 py-4 text-base font-semibold text-ink-foreground transition-base hover:shadow-elevated"
@@ -69,61 +97,12 @@ function Index() {
                 </Link>
                 <Link
                   to="/contact"
-                  className="micro-lift inline-flex items-center gap-2 rounded-full border border-ink/15 bg-white/90 px-7 py-4 text-base font-semibold text-ink backdrop-blur transition-base hover:bg-white"
+                  className="micro-lift inline-flex items-center gap-2 rounded-full border border-ink/15 bg-white/88 px-7 py-4 text-base font-semibold text-ink backdrop-blur transition-base hover:bg-white"
                 >
                   Contact sales
                 </Link>
               </div>
-
-              <div className="mt-6 grid grid-cols-2 gap-3 pb-4 md:order-2">
-                {[
-                  {
-                    title: "High Quality\nMaterials",
-                    body: "Premium materials that ensure long-lasting performance outdoors.",
-                    icon: Award,
-                  },
-                  {
-                    title: "Custom\nDesigns",
-                    body: "Unique, creative designs that bring your brand to life.",
-                    icon: PenLine,
-                  },
-                  {
-                    title: "Expert\nInstallation",
-                    body: "Skilled team for safe, precise and on-time installations.",
-                    icon: Wrench,
-                  },
-                  {
-                    title: "Durable &\nReliable",
-                    body: "Built to withstand all weather and stay vibrant for years.",
-                    icon: ShieldCheck,
-                  },
-                ].map((item) => (
-                  <article
-                    key={item.title}
-                    className="rounded-2xl border border-ink/12 bg-white/88 p-3 shadow-soft backdrop-blur sm:p-5"
-                  >
-                    <div className="flex flex-col items-start gap-2.5 md:flex-row md:gap-3">
-                      <div className="mx-auto flex size-9 shrink-0 items-center justify-center rounded-full bg-white/95 text-highlight shadow-soft md:mx-0 sm:size-11">
-                        <item.icon className="size-4 sm:size-5" strokeWidth={2.2} />
-                      </div>
-                      <div className="w-full">
-                        <h2 className="whitespace-pre-line font-display text-[1.55rem] leading-[0.92] text-ink sm:text-[2rem]">
-                          {item.title}
-                        </h2>
-                        <p className="mt-1.5 max-w-[20ch] text-xs leading-relaxed text-ink/75 sm:mt-2 sm:max-w-[22ch] sm:text-sm">
-                          {item.body}
-                        </p>
-                      </div>
-                    </div>
-                  </article>
-                ))}
-              </div>
             </div>
-
-            <div
-              className="relative hidden h-[260px] md:h-[340px] lg:block lg:h-[430px]"
-              aria-hidden
-            />
           </div>
         </div>
       </section>
