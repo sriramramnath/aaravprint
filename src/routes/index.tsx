@@ -121,7 +121,7 @@ function Index() {
             </Link>
           </div>
 
-          <div className="grid gap-x-8 gap-y-16 md:grid-cols-2">
+          <div className="grid min-w-0 gap-x-8 gap-y-16 md:grid-cols-2">
             {featured.map((p, i) => (
               <ProjectCard key={p.slug} project={p} index={i} />
             ))}

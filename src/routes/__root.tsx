@@ -9,9 +9,9 @@ import favicon from "@/assets/logo.png?url";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen flex-col bg-background">
+    <div className="flex min-h-screen min-w-0 flex-col overflow-x-clip bg-background">
       <SiteHeader />
-      <div className="flex flex-1 items-center justify-center px-4 py-24">
+      <div className="flex min-w-0 flex-1 items-center justify-center px-4 py-24">
         <div className="max-w-md text-center">
           <p className="font-display text-[10rem] leading-none text-ink">404</p>
           <h2 className="mt-2 font-display text-2xl text-ink">Page not found</h2>
@@ -79,9 +79,9 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   return (
-    <div className="flex min-h-screen flex-col bg-background">
+    <div className="flex min-h-screen min-w-0 flex-col overflow-x-clip bg-background">
       <SiteHeader />
-      <main className="flex-1">
+      <main className="min-w-0 flex-1 overflow-x-clip">
         <Outlet />
       </main>
       <SiteFooter />

@@ -1,4 +1,11 @@
-import { useMemo } from "react";
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type TransitionEvent,
+} from "react";
 import { Link } from "@tanstack/react-router";
 import type { Project } from "@/data/projects";
 import { Button } from "@/components/ui/button";
@@ -16,24 +23,116 @@ type Props = {
   index: number;
 };
 
+const CARD_IMAGE_ROTATION_MS = 2000;
+const CARD_SLIDE_MS = 580;
+
 export function ProjectCard({ project, index }: Props) {
   const offset = index % 2 === 0 ? "md:translate-y-0" : "md:translate-y-12";
   const frames = useMemo(() => Array.from(new Set(project.images)), [project.images]);
-  const src = frames[0] ?? project.images[0];
+  const slides = useMemo(() => {
+    if (frames.length > 0) return frames;
+    return project.images[0] ? [project.images[0]] : [];
+  }, [frames, project.images]);
+  /** Extra slot clones first slide so we can slide forward from last → first without rewinding the strip. */
+  const strip = useMemo(
+    () => (slides.length > 1 ? [...slides, slides[0]!] : slides),
+    [slides],
+  );
+  const slotCount = strip.length;
+  const [slideIndex, setSlideIndex] = useState(0);
+  const [stripJump, setStripJump] = useState(false);
+  const pauseRotation = useRef(false);
+
+  useEffect(() => {
+    setSlideIndex(0);
+    setStripJump(false);
+  }, [project.slug]);
+
+  useEffect(() => {
+    if (slides.length <= 1) return;
+    const id = window.setInterval(() => {
+      if (pauseRotation.current || document.hidden) return;
+      setSlideIndex((i) => {
+        if (i < slides.length - 1) return i + 1;
+        return slides.length;
+      });
+    }, CARD_IMAGE_ROTATION_MS);
+    return () => window.clearInterval(id);
+  }, [slides.length]);
+
+  const handleStripTransitionEnd = useCallback(
+    (e: TransitionEvent<HTMLDivElement>) => {
+      if (e.target !== e.currentTarget) return;
+      if (e.propertyName !== "transform") return;
+      if (slides.length <= 1) return;
+      if (slideIndex !== slides.length) return;
+      setStripJump(true);
+      setSlideIndex(0);
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => setStripJump(false));
+      });
+    },
+    [slideIndex, slides.length],
+  );
+
+  const slideTranslatePct = slotCount > 0 ? (100 * slideIndex) / slotCount : 0;
 
   return (
-    <article className={`group ${offset}`}>
-      <div className="micro-card block overflow-hidden rounded-3xl bg-card shadow-soft transition-base hover:shadow-elevated">
-        <div className="relative aspect-[4/3] overflow-hidden rounded-b-none bg-ink/95">
-          <img
-            src={src}
-            alt={project.name}
-            width={1280}
-            height={960}
-            loading="lazy"
-            className="h-full w-full object-contain p-2 transition-base duration-700 group-hover:scale-[1.02]"
-          />
-          <div className="absolute left-4 top-4 rounded-full bg-cream/90 px-3 py-1 text-[11px] font-medium uppercase tracking-wider text-ink backdrop-blur">
+    <article className={`group min-w-0 max-w-full ${offset}`}>
+      <div className="micro-card block min-w-0 overflow-hidden rounded-3xl bg-card shadow-soft transition-base hover:shadow-elevated">
+        <div
+          className="relative aspect-[4/3] min-w-0 overflow-hidden overflow-x-clip rounded-b-none bg-ink/95"
+          onMouseEnter={() => {
+            if (typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches) {
+              pauseRotation.current = true;
+            }
+          }}
+          onMouseLeave={() => {
+            pauseRotation.current = false;
+          }}
+        >
+          {slotCount > 0 ? (
+            <div
+              className="flex h-full min-w-0 w-full motion-reduce:!transition-none"
+              style={{
+                width: `${slotCount * 100}%`,
+                transform: `translate3d(-${slideTranslatePct}%,0,0)`,
+                transitionProperty: stripJump || slides.length <= 1 ? "none" : "transform",
+                transitionDuration:
+                  stripJump || slides.length <= 1 ? undefined : `${CARD_SLIDE_MS}ms`,
+                transitionTimingFunction: "cubic-bezier(0.25, 0.82, 0.42, 0.97)",
+              }}
+              onTransitionEnd={handleStripTransitionEnd}
+            >
+              {strip.map((src, i) => {
+                const isClone = slides.length > 1 && i === strip.length - 1;
+                const alt =
+                  isClone || slides.length <= 1
+                    ? slides.length <= 1
+                      ? project.name
+                      : ""
+                    : `${project.name} — preview ${i + 1} of ${slides.length}`;
+                return (
+                  <div
+                    key={`${project.slug}-${i}-${src}`}
+                    className="relative flex h-full min-w-0 shrink-0 items-center justify-center"
+                    style={{ width: `${100 / slotCount}%` }}
+                    aria-hidden={isClone ? true : undefined}
+                  >
+                    <img
+                      src={src}
+                      alt={alt}
+                      width={1280}
+                      height={960}
+                      loading={i === 0 ? "eager" : "lazy"}
+                      className="h-full w-full min-w-0 max-w-full object-contain p-2 transition-transform duration-700 ease-out motion-reduce:transition-none group-hover:scale-[1.02]"
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          ) : null}
+          <div className="absolute left-4 top-4 z-10 rounded-full bg-cream/90 px-3 py-1 text-[11px] font-medium uppercase tracking-wider text-ink backdrop-blur">
             {project.category}
           </div>
           <Dialog>
@@ -41,7 +140,7 @@ export function ProjectCard({ project, index }: Props) {
               <Button
                 type="button"
                 variant="secondary"
-                className="micro-lift absolute bottom-4 right-4 rounded-full border border-border bg-card/95 px-5 text-xs font-semibold uppercase tracking-wider text-ink shadow-soft hover:border-highlight hover:bg-highlight hover:text-highlight-foreground"
+                className="micro-lift absolute bottom-4 right-4 z-10 rounded-full border border-border bg-card/95 px-5 text-xs font-semibold uppercase tracking-wider text-ink shadow-soft hover:border-highlight hover:bg-highlight hover:text-highlight-foreground"
               >
                 View
               </Button>

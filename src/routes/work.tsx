@@ -40,7 +40,7 @@ function WorkPage() {
       </section>
 
       <section className="container-editorial pb-24 md:pb-32">
-        <div className="grid gap-x-8 gap-y-16 md:grid-cols-2">
+        <div className="grid min-w-0 gap-x-8 gap-y-16 md:grid-cols-2">
           {projects.map((p, i) => (
             <ProjectCard key={p.slug} project={p} index={i} />
           ))}
