@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { projects, homeHeroImage } from "@/data/projects";
 import { ProjectCard } from "@/components/project-card";
+import { DecorShapes } from "@/components/decor-shapes";
 import { companyInfo } from "@/lib/company";
 
 export const Route = createFileRoute("/")({
@@ -61,6 +62,8 @@ function Index() {
           aria-hidden
           className="absolute inset-0 -z-20 bg-[linear-gradient(180deg,rgba(253,212,6,0.84)_0%,rgba(253,212,6,0.78)_38%,rgba(253,212,6,0.72)_100%)]"
         />
+
+        <DecorShapes variant="hero" className="-z-10" />
 
         <div className="container-editorial">
           <div className="relative flex min-h-[31rem] items-center justify-center py-6 md:min-h-[40rem] md:py-10">
@@ -155,10 +158,26 @@ function Index() {
             </div>
             <ul className="grid gap-x-12 gap-y-10 md:col-span-7 md:grid-cols-2">
               {[
-                { n: "01", t: "Illuminated signs", d: "LED boards, backlit flex, and light boxes." },
-                { n: "02", t: "Facade & ACP", d: "Panels, canopies, and signs made for outdoor use." },
-                { n: "03", t: "Vinyl & pasting", d: "Vinyl for vehicles, glass, and strong wrap jobs." },
-                { n: "04", t: "Events & retail", d: "Roll-ups, backdrops, promo tables, and more." },
+                {
+                  n: "01",
+                  t: "Illuminated signs",
+                  d: "LED boards, backlit flex, and light boxes.",
+                },
+                {
+                  n: "02",
+                  t: "Facade & ACP",
+                  d: "Panels, canopies, and signs made for outdoor use.",
+                },
+                {
+                  n: "03",
+                  t: "Vinyl & pasting",
+                  d: "Vinyl for vehicles, glass, and strong wrap jobs.",
+                },
+                {
+                  n: "04",
+                  t: "Events & retail",
+                  d: "Roll-ups, backdrops, promo tables, and more.",
+                },
               ].map((s) => (
                 <li key={s.n} className="border-t border-ink-foreground/15 pt-5">
                   <p className="font-display text-sm tabular-nums text-highlight">{s.n}</p>

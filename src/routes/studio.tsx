@@ -57,9 +57,8 @@ function StudioPage() {
           {companyInfo.tagline}
         </p>
         <p className="mt-6 max-w-2xl text-muted-foreground md:text-lg">
-          We are a print-first workshop serving Chennai and beyond. Browse the work
-          section for photos from our shop — every product below is a category we
-          supply and install.
+          We are a print-first workshop serving Chennai and beyond. Browse the work section for
+          photos from our shop — every product below is a category we supply and install.
         </p>
       </section>
 

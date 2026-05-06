@@ -422,6 +422,28 @@
   }
 }
 
+/* Decorative shape ambient motion (Memphis-style accents).
+ * Half-circles are intentionally static — only small accent shapes carry
+ * subtle motion so the composition stays grounded against the page edges. */
+@keyframes shape-float {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -6px, 0); }
+}
+
+@keyframes shape-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.15); opacity: 0.85; }
+}
+
+@layer utilities {
+  .anim-shape-float {
+    animation: shape-float 4.5s ease-in-out infinite;
+  }
+  .anim-shape-pulse {
+    animation: shape-pulse 3.5s ease-in-out infinite;
+  }
+}
+
 @layer utilities {
   .anim-mobile-menu-overlay-open {
     animation: mobile-menu-overlay-in 0.32s ease-out both;

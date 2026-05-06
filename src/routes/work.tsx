@@ -12,7 +12,10 @@ export const Route = createFileRoute("/work")({
           "Signage and print from Aarav Signboard: LED, ACP, vinyl, name plates, events, and more.",
       },
       { property: "og:title", content: "Our work — Aarav Signboard" },
-      { property: "og:description", content: "Real jobs from our shop — every category with photos." },
+      {
+        property: "og:description",
+        content: "Real jobs from our shop — every category with photos.",
+      },
     ],
   }),
   component: WorkPage,
@@ -33,9 +36,8 @@ function WorkPage() {
           </span>
         </h1>
         <p className="mt-6 max-w-2xl text-muted-foreground md:text-lg">
-          Each card matches a type of work we produce — photos are from the same
-          jobs we ship for shops, fleets, and events. Tap through for details and
-          a quote.
+          Each card matches a type of work we produce — photos are from the same jobs we ship for
+          shops, fleets, and events. Tap through for details and a quote.
         </p>
       </section>
 

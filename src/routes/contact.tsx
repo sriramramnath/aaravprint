@@ -16,7 +16,10 @@ export const Route = createFileRoute("/contact")({
         content: `${companyInfo.tagline} Contact ${companyInfo.name} in Chennai.`,
       },
       { property: "og:title", content: "Contact — Aarav Signboard" },
-      { property: "og:description", content: "Request a quote or ask about materials and lead times." },
+      {
+        property: "og:description",
+        content: "Request a quote or ask about materials and lead times.",
+      },
     ],
   }),
   component: ContactPage,
@@ -28,8 +31,7 @@ const budgets = ["< ₹5,000", "₹5,000–₹25,000", "₹25,000–₹1,00,000"
 
 const formSubmitUrl = `https://formsubmit.co/ajax/${encodeURIComponent(companyInfo.email)}`;
 
-const inputTouchClass =
-  "h-11 min-h-11 text-base sm:text-sm [touch-action:manipulation]";
+const inputTouchClass = "h-11 min-h-11 text-base sm:text-sm [touch-action:manipulation]";
 
 const chipClass =
   "min-h-11 min-w-0 max-w-full touch-manipulation [touch-action:manipulation] rounded-full px-3 py-2.5 text-left text-[13px] leading-snug sm:py-2 sm:text-sm active:scale-[0.99] sm:max-w-none";
@@ -67,7 +69,8 @@ function ContactPage() {
 
     if (selectedProducts.size === 0) {
       toast.error("Select at least one product", {
-        description: "Use the list below to choose what you need — selected items appear at the top.",
+        description:
+          "Use the list below to choose what you need — selected items appear at the top.",
       });
       return;
     }
@@ -140,8 +143,8 @@ function ContactPage() {
           {companyInfo.tagline}
         </p>
         <p className="mt-3 max-w-2xl text-pretty text-sm text-muted-foreground sm:mt-4 sm:text-base md:text-lg">
-          Rough size, where it will go, and when you need it help us quote
-          quickly. Photos and references are always welcome.
+          Rough size, where it will go, and when you need it help us quote quickly. Photos and
+          references are always welcome.
         </p>
       </section>
 
@@ -159,7 +162,9 @@ function ContactPage() {
             </div>
 
             <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Company fabrication</p>
+              <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+                Company fabrication
+              </p>
               <p className="mt-2 font-display text-base leading-relaxed text-ink sm:mt-3 sm:text-lg">
                 {companyInfo.locations[0]?.address}
               </p>
@@ -174,7 +179,8 @@ function ContactPage() {
             <div className="micro-card rounded-2xl bg-ink p-6 text-ink-foreground sm:rounded-3xl sm:p-8">
               <p className="text-xs uppercase tracking-[0.3em] text-highlight">Rush jobs</p>
               <p className="mt-2 font-display text-xl sm:mt-3 sm:text-2xl">
-                Tell us your <span className="italic text-highlight">deadline</span> in the first line.
+                Tell us your <span className="italic text-highlight">deadline</span> in the first
+                line.
               </p>
               <p className="mt-2 text-sm text-ink-foreground/70 sm:mt-3">
                 We will say honestly if we can meet it or suggest a realistic date.
@@ -246,12 +252,9 @@ function ContactPage() {
             <div className="space-y-2 sm:space-y-3">
               <Label>What do you need?</Label>
               <p className="text-xs text-muted-foreground [text-wrap:pretty]">
-                Select all that apply. Chosen lines stay at the top; tap again to
-                deselect.
+                Select all that apply. Chosen lines stay at the top; tap again to deselect.
               </p>
-              <div
-                className="max-h-[min(60dvh,22rem)] overflow-y-auto overscroll-contain rounded-2xl border border-border/80 bg-muted/20 p-3 [-webkit-overflow-scrolling:touch] sm:max-h-[min(50vh,28rem)]"
-              >
+              <div className="max-h-[min(60dvh,22rem)] overflow-y-auto overscroll-contain rounded-2xl border border-border/80 bg-muted/20 p-3 [-webkit-overflow-scrolling:touch] sm:max-h-[min(50vh,28rem)]">
                 <div className="space-y-4">
                   <div>
                     <p className="mb-2 text-[11px] font-medium uppercase tracking-wider text-ink">
@@ -334,8 +337,8 @@ function ContactPage() {
               Submissions are sent to {companyInfo.email}
               {". "}
               <span className="text-muted-foreground/90">
-                If this is the first time, you may get one activation link from the form
-                service — after that, messages arrive in the inbox.
+                If this is the first time, you may get one activation link from the form service —
+                after that, messages arrive in the inbox.
               </span>
             </p>
 
