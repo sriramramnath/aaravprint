@@ -91,7 +91,7 @@ export function SiteHeader() {
                 to={link.to}
                 className={cn(
                   "micro-lift relative rounded-full px-4 py-2 text-sm font-medium transition-base",
-                  active ? "text-foreground" : "text-muted-foreground hover:text-foreground",
+                  active ? "text-black" : "text-muted-foreground hover:text-foreground",
                 )}
               >
                 {active && (

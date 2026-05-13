@@ -9,26 +9,22 @@ import favicon from "@/assets/logo.png?url";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen min-w-0 flex-col overflow-x-clip bg-background">
-      <SiteHeader />
-      <div className="flex min-w-0 flex-1 items-center justify-center px-4 py-24">
-        <div className="max-w-md text-center">
-          <p className="font-display text-[10rem] leading-none text-ink">404</p>
-          <h2 className="mt-2 font-display text-2xl text-ink">Page not found</h2>
-          <p className="mt-3 text-sm text-muted-foreground">
-            The page you want is not here — try home or our work.
-          </p>
-          <div className="mt-8">
-            <Link
-              to="/"
-              className="micro-lift inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-display text-sm font-medium tracking-wide text-primary-foreground transition-base hover:bg-primary-fixed hover:shadow-glow"
-            >
-              ← Back home
-            </Link>
-          </div>
+    <div className="flex min-h-0 w-full flex-1 flex-col items-center justify-center px-4 py-24">
+      <div className="max-w-md text-center">
+        <p className="font-display text-[10rem] leading-none text-ink">404</p>
+        <h2 className="mt-2 font-display text-2xl text-ink">Page not found</h2>
+        <p className="mt-3 text-sm text-muted-foreground">
+          The page you want is not here — try home or our work.
+        </p>
+        <div className="mt-8">
+          <Link
+            to="/"
+            className="micro-lift inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-display text-sm font-medium tracking-wide text-primary-foreground transition-base hover:bg-primary-fixed hover:shadow-glow"
+          >
+            ← Back home
+          </Link>
         </div>
       </div>
-      <SiteFooter />
     </div>
   );
 }
@@ -81,7 +77,7 @@ function RootComponent() {
   return (
     <div className="flex min-h-screen min-w-0 flex-col overflow-x-clip bg-background">
       <SiteHeader />
-      <main className="min-w-0 flex-1 overflow-x-clip">
+      <main className="flex min-h-0 min-w-0 flex-1 flex-col overflow-x-clip">
         <Outlet />
       </main>
       <SiteFooter />

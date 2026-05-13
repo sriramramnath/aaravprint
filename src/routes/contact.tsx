@@ -290,7 +290,7 @@ function ContactPage() {
                           type="button"
                           key={s}
                           onClick={() => toggleProduct(s)}
-                          className={`micro-lift ${chipClass} border border-border bg-background text-muted-foreground hover:border-secondary hover:text-secondary sm:inline-flex sm:w-auto`}
+                          className={`micro-lift ${chipClass} border border-border bg-background text-muted-foreground hover:border-muted-foreground/50 hover:text-white sm:inline-flex sm:w-auto`}
                         >
                           {s}
                         </button>
@@ -312,7 +312,7 @@ function ContactPage() {
                     className={
                       budget === b
                         ? `micro-lift ${budgetClass} border-highlight bg-highlight text-highlight-foreground`
-                        : `micro-lift ${budgetClass} border-border bg-transparent text-muted-foreground hover:border-secondary hover:text-secondary`
+                        : `micro-lift ${budgetClass} border-border bg-transparent text-muted-foreground hover:border-muted-foreground/50 hover:text-white`
                     }
                   >
                     {b}

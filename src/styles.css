@@ -100,7 +100,8 @@
   --ink-foreground: var(--totality-on-surface);
 
   --highlight: var(--totality-primary-container);
-  --highlight-foreground: var(--totality-on-primary-container);
+  /* Near-black on gold / vivid yellow for buttons and chips */
+  --highlight-foreground: var(--totality-surface-lowest);
 
   --card: color-mix(in srgb, var(--totality-surface-highest) 22%, transparent);
   --card-foreground: var(--totality-on-surface);
@@ -108,7 +109,8 @@
   --popover-foreground: var(--totality-on-surface);
 
   --primary: var(--totality-primary);
-  --primary-foreground: var(--totality-on-primary);
+  /* Cream primary pills — match vivid yellows with dark ink */
+  --primary-foreground: var(--totality-surface-lowest);
 
   --secondary: color-mix(in srgb, var(--totality-secondary) 14%, transparent);
   --secondary-foreground: var(--totality-secondary);
@@ -117,7 +119,7 @@
   --muted-foreground: var(--totality-on-surface-variant);
 
   --accent: var(--totality-primary-container);
-  --accent-foreground: var(--totality-on-primary-container);
+  --accent-foreground: var(--totality-surface-lowest);
 
   --destructive: #93000a;
   --destructive-foreground: #ffdad6;
@@ -135,7 +137,7 @@
   --sidebar: var(--totality-surface-low);
   --sidebar-foreground: var(--totality-on-surface);
   --sidebar-primary: var(--totality-primary);
-  --sidebar-primary-foreground: var(--totality-on-primary);
+  --sidebar-primary-foreground: var(--totality-surface-lowest);
   --sidebar-accent: var(--totality-surface-high);
   --sidebar-accent-foreground: var(--totality-on-surface);
   --sidebar-border: var(--border);
