@@ -52,7 +52,7 @@ export function ProjectCarousel({ images, alt }: Props) {
               aria-label="Previous slide"
               onClick={() => api?.scrollPrev()}
               disabled={current === 0}
-              className="absolute left-3 top-1/2 z-40 inline-flex size-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 glass-panel text-foreground shadow-lg transition-colors hover:border-secondary hover:bg-[rgba(0,227,253,0.12)] hover:text-secondary disabled:opacity-45 sm:left-4 sm:size-12"
+              className="absolute left-3 top-1/2 z-40 inline-flex size-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 glass-panel text-foreground shadow-lg transition-colors hover:border-secondary hover:bg-[rgba(255,122,84,0.14)] hover:text-secondary disabled:opacity-45 sm:left-4 sm:size-12"
             >
               <ArrowLeft className="size-4 sm:size-5" />
             </button>
@@ -61,7 +61,7 @@ export function ProjectCarousel({ images, alt }: Props) {
               aria-label="Next slide"
               onClick={() => api?.scrollNext()}
               disabled={current >= images.length - 1}
-              className="absolute right-3 top-1/2 z-40 inline-flex size-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 glass-panel text-foreground shadow-lg transition-colors hover:border-secondary hover:bg-[rgba(0,227,253,0.12)] hover:text-secondary disabled:opacity-45 sm:right-4 sm:size-12"
+              className="absolute right-3 top-1/2 z-40 inline-flex size-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 glass-panel text-foreground shadow-lg transition-colors hover:border-secondary hover:bg-[rgba(255,122,84,0.14)] hover:text-secondary disabled:opacity-45 sm:right-4 sm:size-12"
             >
               <ArrowRight className="size-4 sm:size-5" />
             </button>

@@ -7,7 +7,7 @@
 
 /*
  * Totality — Cosmic premium design system (design.md).
- * Obsidian surfaces, corona primary, cyan secondary. Glassmorphism + radial depth.
+ * Obsidian surfaces, warm gold primary, coral accent. Glassmorphism + radial depth.
  * Typography: Space Grotesk (display, labels) + Inter (body).
  */
 
@@ -79,15 +79,16 @@
   --totality-surface-highest: #34343a;
   --totality-on-surface: #e3e1e9;
   --totality-on-surface-variant: #d0c6ab;
-  --totality-outline-variant: #4d4732;
-  --totality-primary: #fff6df;
-  --totality-on-primary: #3a3000;
-  --totality-primary-container: #ffd700;
-  --totality-on-primary-container: #705e00;
-  --totality-primary-fixed: #ffe16d;
-  --totality-secondary: #bdf4ff;
-  --totality-on-secondary: #00363d;
-  --totality-secondary-container: #00e3fd;
+  --totality-outline-variant: #554a3f;
+  --totality-primary: #fcd305;
+  --totality-on-primary: #2f2600;
+  --totality-primary-container: color-mix(in srgb, #291f00 14%, #fcd305);
+  --totality-on-primary-container: #2f2600;
+  --totality-primary-fixed: color-mix(in srgb, #1b1500 18%, #fcd305);
+  /* Warm coral accent — vivid without blue luminance */
+  --totality-secondary: #ffd4c8;
+  --totality-on-secondary: #3d1710;
+  --totality-secondary-container: #ff7a54;
   --totality-tertiary-container: #e7d1ff;
   --totality-on-tertiary-container: #6b5586;
 
@@ -99,7 +100,7 @@
   --ink: var(--totality-surface-lowest);
   --ink-foreground: var(--totality-on-surface);
 
-  --highlight: var(--totality-primary-container);
+  --highlight: var(--totality-primary);
   /* Near-black on gold / vivid yellow for buttons and chips */
   --highlight-foreground: var(--totality-surface-lowest);
 
@@ -126,7 +127,7 @@
 
   --border: color-mix(in srgb, var(--totality-outline-variant) 55%, transparent);
   --input: var(--totality-surface-lowest);
-  --ring: var(--totality-secondary-container);
+  --ring: color-mix(in srgb, var(--totality-primary-fixed) 88%, var(--totality-primary-container));
 
   --chart-1: var(--totality-primary);
   --chart-2: var(--totality-secondary-container);
@@ -141,7 +142,7 @@
   --sidebar-accent: var(--totality-surface-high);
   --sidebar-accent-foreground: var(--totality-on-surface);
   --sidebar-border: var(--border);
-  --sidebar-ring: var(--totality-secondary-container);
+  --sidebar-ring: color-mix(in srgb, var(--totality-primary-fixed) 88%, var(--totality-primary-container));
 
   /* Gradients — eclipse / nebula depth */
   --gradient-ink: linear-gradient(
@@ -153,25 +154,29 @@
   --gradient-spark: linear-gradient(
     120deg,
     var(--totality-primary-fixed) 0%,
-    var(--totality-primary-container) 48%,
-    var(--totality-secondary-container) 100%
+    var(--totality-primary-container) 44%,
+    color-mix(in srgb, var(--totality-secondary-container) 85%, transparent) 100%
   );
   --gradient-editorial: radial-gradient(
-      ellipse 120% 80% at 50% 18%,
-      color-mix(in srgb, var(--totality-tertiary-container) 28%, transparent) 0%,
-      transparent 52%
+      ellipse 120% 80% at 50% 16%,
+      color-mix(in srgb, var(--totality-tertiary-container) 26%, transparent) 0%,
+      transparent 55%
     ),
     radial-gradient(
-      circle at 85% 75%,
-      color-mix(in srgb, var(--totality-secondary-container) 18%, transparent) 0%,
-      transparent 48%
+      circle at 88% 78%,
+      color-mix(in srgb, var(--totality-primary-container) 14%, transparent) 0%,
+      transparent 50%
     ),
-    radial-gradient(circle at 10% 80%, color-mix(in srgb, var(--totality-primary) 8%, transparent) 0%, transparent 42%);
+    radial-gradient(
+      circle at 8% 72%,
+      color-mix(in srgb, var(--totality-secondary-container) 10%, transparent) 0%,
+      transparent 44%
+    );
 
   --shadow-soft: 0 1px 1px rgb(0 0 0 / 35%), 0 12px 40px -16px rgb(0 0 0 / 55%);
   --shadow-elevated: 0 28px 64px -28px rgb(0 0 0 / 65%);
-  --shadow-glow: 0 20px 56px -16px color-mix(in srgb, var(--totality-primary-fixed) 45%, transparent);
-  --shadow-glow-cyan: 0 18px 48px -14px color-mix(in srgb, var(--totality-secondary-container) 38%, transparent);
+  --shadow-glow: 0 22px 56px -14px color-mix(in srgb, var(--totality-primary-container) 42%, transparent);
+  --shadow-glow-accent: 0 20px 50px -16px color-mix(in srgb, var(--totality-secondary-container) 32%, transparent);
 
   --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -332,7 +337,7 @@
   }
   .micro-card:hover {
     transform: translateY(-3px);
-    box-shadow: var(--shadow-glow-cyan);
+    box-shadow: var(--shadow-glow-accent);
   }
 
   .glass-panel {
@@ -345,32 +350,32 @@
   .glass-panel-interactive:hover {
     background-color: var(--glass-bg-hover);
     box-shadow:
-      inset 0 0 0 1px var(--glass-stroke),
-      var(--shadow-glow-cyan);
+      inset 0 0 0 1px rgb(255 255 255 / 0.14),
+      var(--shadow-glow-accent);
   }
 
   .hero-headline-glow {
     text-shadow:
-      0 0 42px color-mix(in srgb, var(--totality-primary) 24%, transparent),
-      0 0 80px color-mix(in srgb, var(--totality-primary-fixed) 12%, transparent);
+      0 0 1px color-mix(in srgb, var(--totality-primary) 35%, transparent),
+      0 2px 28px color-mix(in srgb, var(--totality-surface-lowest) 55%, transparent);
   }
 
   .bg-hero-veil {
     background:
       radial-gradient(
         ellipse 92% 72% at 50% 36%,
-        color-mix(in srgb, var(--totality-tertiary-container) 24%, transparent) 0%,
-        transparent 52%
+        color-mix(in srgb, var(--totality-tertiary-container) 22%, transparent) 0%,
+        transparent 54%
       ),
       radial-gradient(
         circle at 82% 86%,
-        color-mix(in srgb, var(--totality-secondary-container) 16%, transparent) 0%,
-        transparent 48%
+        color-mix(in srgb, var(--totality-primary-container) 12%, transparent) 0%,
+        transparent 50%
       ),
       linear-gradient(
         180deg,
-        color-mix(in srgb, var(--totality-surface-lowest) 78%, transparent) 0%,
-        color-mix(in srgb, var(--totality-surface) 85%, transparent) 100%
+        color-mix(in srgb, var(--totality-surface-lowest) 82%, transparent) 0%,
+        color-mix(in srgb, var(--totality-surface) 88%, transparent) 100%
       );
   }
 

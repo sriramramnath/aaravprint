@@ -139,8 +139,8 @@ export function ProjectCard({ project, index }: Props) {
             <DialogTrigger asChild>
               <Button
                 type="button"
-                variant="secondary"
-                className="micro-lift absolute bottom-4 right-4 z-10 rounded-full border border-border bg-card/95 px-5 text-xs font-semibold uppercase tracking-wider text-ink shadow-soft hover:border-highlight hover:bg-highlight hover:text-highlight-foreground"
+                variant="default"
+                className="micro-lift absolute bottom-4 right-4 z-10 rounded-full border border-primary/25 px-5 text-xs font-semibold uppercase tracking-wider shadow-soft"
               >
                 View
               </Button>
