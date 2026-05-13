@@ -13,13 +13,22 @@ const links = [
   { to: "/contact", label: "Contact" },
 ] as const;
 
-/** Collapsed + expanded mobile menu: identical logo box. */
+/**
+ * Logo asset is a square canvas with the mark centered — wide `contain` boxing
+ * left a large dead band before the wordmark; crop tightly with `cover`.
+ */
+/** Half of prior h-9 / w-11 / sm:w-12 / md:h-10 / md:w-14 so the mark reads smaller in the bar. */
+const BRAND_LOGO_FRAME =
+  "flex h-[1.125rem] w-[1.375rem] shrink-0 overflow-hidden sm:w-6 md:h-5 md:w-7";
 const BRAND_LOGO_IMG =
-  "h-9 w-[120px] max-w-[min(120px,75vw)] shrink-0 object-contain object-left select-none [content-visibility:auto]";
+  "h-full w-full max-w-none object-cover object-center select-none [content-visibility:auto]";
 
 const linkEasing = "cubic-bezier(0.22, 1, 0.36, 1)";
 const linkStaggerS = 0.052;
 const linkStartDelayS = 0.1;
+
+/** Thin space keeps words visually tight (narrower than a normal word space). */
+const brandLine = companyInfo.name.split(/\s+/).filter(Boolean).join("\u2009");
 
 /** Three lines, right-aligned (longest → shortest). */
 function HamburgerIcon() {
@@ -56,26 +65,30 @@ export function SiteHeader() {
           : "border-b border-transparent bg-transparent",
       )}
     >
-      <div className="container-editorial flex h-[4.5rem] items-center justify-between gap-3 px-4 sm:h-20 sm:px-6 md:gap-6 md:px-8">
+      <div className="container-editorial relative flex h-[4.5rem] items-center justify-between gap-3 px-4 sm:h-20 sm:px-6 md:gap-6 md:px-8">
         <Link
           to="/"
-          className="group flex min-w-0 items-center gap-2 sm:gap-3"
+          className={cn(
+            "group relative flex min-w-0 items-center gap-0.5 md:gap-1",
+            "max-md:absolute max-md:left-1/2 max-md:top-1/2 max-md:max-w-[calc(100%-3.5rem)] max-md:-translate-x-1/2 max-md:-translate-y-1/2",
+          )}
           onClick={() => setMobileOpen(false)}
         >
-          <img
-            src={logoSrc}
-            alt={companyInfo.name}
-            width={120}
-            height={40}
-            className={cn(
-              BRAND_LOGO_IMG,
-              "transition-opacity group-hover:opacity-90",
-              "md:h-10 md:max-w-[8.75rem] md:object-left",
-            )}
-            decoding="async"
-          />
-          <span className="font-display min-w-0 truncate text-base tracking-tight text-foreground sm:text-lg md:text-xl">
-            {companyInfo.name}
+          <span
+            aria-hidden
+            className={cn(BRAND_LOGO_FRAME, "transition-opacity group-hover:opacity-90")}
+          >
+            <img
+              src={logoSrc}
+              alt=""
+              width={512}
+              height={512}
+              className={BRAND_LOGO_IMG}
+              decoding="async"
+            />
+          </span>
+          <span className="font-display whitespace-nowrap text-center text-base tracking-tight text-foreground max-md:inline-block max-md:min-w-0 sm:text-lg md:text-left md:text-xl">
+            {brandLine}
           </span>
         </Link>
 
@@ -103,7 +116,7 @@ export function SiteHeader() {
           })}
         </nav>
 
-        <div className="flex shrink-0 items-center gap-2">
+        <div className="relative z-10 ml-auto flex shrink-0 items-center gap-2">
           <Link
             to="/contact"
             className="micro-lift hidden items-center gap-2 rounded-full bg-primary px-5 py-2.5 font-display text-sm font-medium tracking-wide text-primary-foreground transition-base hover:bg-primary-fixed hover:shadow-glow md:inline-flex"
@@ -156,14 +169,9 @@ export function SiteHeader() {
                       className="shrink-0"
                       onClick={() => setMobileOpen(false)}
                     >
-                      <img
-                        src={logoSrc}
-                        alt=""
-                        width={120}
-                        height={40}
-                        className={BRAND_LOGO_IMG}
-                        decoding="async"
-                      />
+                      <span aria-hidden className={BRAND_LOGO_FRAME}>
+                        <img src={logoSrc} alt="" width={512} height={512} className={BRAND_LOGO_IMG} decoding="async" />
+                      </span>
                     </Link>
                     <DialogPrimitive.Close
                       className="micro-lift flex h-12 w-12 items-center justify-center rounded-full [touch-action:manipulation] active:bg-foreground/5"
