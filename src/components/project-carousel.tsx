@@ -52,7 +52,7 @@ export function ProjectCarousel({ images, alt }: Props) {
               aria-label="Previous slide"
               onClick={() => api?.scrollPrev()}
               disabled={current === 0}
-              className="absolute left-3 top-1/2 z-40 inline-flex size-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/80 bg-white text-ink shadow-lg ring-1 ring-black/10 transition-colors hover:border-highlight hover:bg-highlight hover:text-highlight-foreground disabled:opacity-45 sm:left-4 sm:size-12"
+              className="absolute left-3 top-1/2 z-40 inline-flex size-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 glass-panel text-foreground shadow-lg transition-colors hover:border-secondary hover:bg-[rgba(0,227,253,0.12)] hover:text-secondary disabled:opacity-45 sm:left-4 sm:size-12"
             >
               <ArrowLeft className="size-4 sm:size-5" />
             </button>
@@ -61,7 +61,7 @@ export function ProjectCarousel({ images, alt }: Props) {
               aria-label="Next slide"
               onClick={() => api?.scrollNext()}
               disabled={current >= images.length - 1}
-              className="absolute right-3 top-1/2 z-40 inline-flex size-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/80 bg-white text-ink shadow-lg ring-1 ring-black/10 transition-colors hover:border-highlight hover:bg-highlight hover:text-highlight-foreground disabled:opacity-45 sm:right-4 sm:size-12"
+              className="absolute right-3 top-1/2 z-40 inline-flex size-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 glass-panel text-foreground shadow-lg transition-colors hover:border-secondary hover:bg-[rgba(0,227,253,0.12)] hover:text-secondary disabled:opacity-45 sm:right-4 sm:size-12"
             >
               <ArrowRight className="size-4 sm:size-5" />
             </button>
@@ -71,7 +71,7 @@ export function ProjectCarousel({ images, alt }: Props) {
 
       <div className="flex items-center justify-start gap-3 px-1">
         <p className="font-display text-xs tabular-nums text-muted-foreground sm:text-sm">
-          <span className="text-ink">{String(current + 1).padStart(2, "0")}</span>
+          <span className="text-foreground">{String(current + 1).padStart(2, "0")}</span>
           <span className="mx-2">/</span>
           {String(images.length).padStart(2, "0")}
         </p>

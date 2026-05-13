@@ -79,7 +79,7 @@ export function ProjectCard({ project, index }: Props) {
 
   return (
     <article className={`group min-w-0 max-w-full ${offset}`}>
-      <div className="micro-card block min-w-0 overflow-hidden rounded-3xl bg-card shadow-soft transition-base hover:shadow-elevated">
+      <div className="micro-card block min-w-0 overflow-hidden rounded-3xl border border-white/[0.07] bg-card shadow-soft transition-base hover:border-secondary/25 hover:shadow-elevated">
         <div
           className="relative aspect-[4/3] min-w-0 overflow-hidden overflow-x-clip rounded-b-none bg-ink/95"
           onMouseEnter={() => {
@@ -132,7 +132,7 @@ export function ProjectCard({ project, index }: Props) {
               })}
             </div>
           ) : null}
-          <div className="absolute left-4 top-4 z-10 rounded-full bg-cream/90 px-3 py-1 text-[11px] font-medium uppercase tracking-wider text-ink backdrop-blur">
+          <div className="absolute left-4 top-4 z-10 rounded-full border border-white/10 px-3 py-1 font-display text-[11px] font-medium uppercase tracking-[0.12em] text-foreground glass-panel backdrop-blur-md">
             {project.category}
           </div>
           <Dialog>

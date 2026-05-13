@@ -257,7 +257,7 @@ function ContactPage() {
               <div className="max-h-[min(60dvh,22rem)] overflow-y-auto overscroll-contain rounded-2xl border border-border/80 bg-muted/20 p-3 [-webkit-overflow-scrolling:touch] sm:max-h-[min(50vh,28rem)]">
                 <div className="space-y-4">
                   <div>
-                    <p className="mb-2 text-[11px] font-medium uppercase tracking-wider text-ink">
+                    <p className="mb-2 text-[11px] font-medium uppercase tracking-wider text-foreground">
                       Selected ({selectedOrdered.length})
                     </p>
                     {selectedOrdered.length === 0 ? (
@@ -271,7 +271,7 @@ function ContactPage() {
                             type="button"
                             key={`sel-${s}`}
                             onClick={() => toggleProduct(s)}
-                            className={`micro-lift ${chipClass} border border-ink bg-ink text-ink-foreground hover:bg-ink/90 sm:inline-flex sm:w-auto`}
+                            className={`micro-lift ${chipClass} border border-border bg-primary text-primary-foreground hover:bg-primary-fixed sm:inline-flex sm:w-auto`}
                           >
                             {s}
                           </button>
@@ -290,7 +290,7 @@ function ContactPage() {
                           type="button"
                           key={s}
                           onClick={() => toggleProduct(s)}
-                          className={`micro-lift ${chipClass} border border-border bg-background text-muted-foreground hover:border-ink hover:text-ink sm:inline-flex sm:w-auto`}
+                          className={`micro-lift ${chipClass} border border-border bg-background text-muted-foreground hover:border-secondary hover:text-secondary sm:inline-flex sm:w-auto`}
                         >
                           {s}
                         </button>
@@ -312,7 +312,7 @@ function ContactPage() {
                     className={
                       budget === b
                         ? `micro-lift ${budgetClass} border-highlight bg-highlight text-highlight-foreground`
-                        : `micro-lift ${budgetClass} border-border bg-transparent text-muted-foreground hover:border-ink hover:text-ink`
+                        : `micro-lift ${budgetClass} border-border bg-transparent text-muted-foreground hover:border-secondary hover:text-secondary`
                     }
                   >
                     {b}
@@ -345,7 +345,7 @@ function ContactPage() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="micro-lift h-12 w-full touch-manipulation rounded-full bg-ink text-sm font-medium text-ink-foreground transition-base hover:shadow-elevated disabled:cursor-not-allowed disabled:opacity-60"
+              className="micro-lift h-12 w-full touch-manipulation rounded-full bg-primary font-display text-sm font-medium tracking-wide text-primary-foreground transition-base hover:bg-primary-fixed hover:shadow-glow disabled:cursor-not-allowed disabled:opacity-60"
             >
               {isSubmitting ? "Sending…" : "Send message →"}
             </button>

@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { projects, homeHeroImage } from "@/data/projects";
 import { ProjectCard } from "@/components/project-card";
-import { DecorShapes } from "@/components/decor-shapes";
 import { companyInfo } from "@/lib/company";
 
 export const Route = createFileRoute("/")({
@@ -58,45 +57,40 @@ function Index() {
           alt=""
           className="absolute inset-0 -z-30 h-full w-full object-cover"
         />
-        <div
-          aria-hidden
-          className="absolute inset-0 -z-20 bg-[linear-gradient(180deg,rgba(253,212,6,0.84)_0%,rgba(253,212,6,0.78)_38%,rgba(253,212,6,0.72)_100%)]"
-        />
-
-        <DecorShapes variant="hero" className="-z-10" />
+        <div aria-hidden className="bg-hero-veil absolute inset-0 -z-20" />
 
         <div className="container-editorial">
           <div className="relative flex min-h-[31rem] items-center justify-center py-6 md:min-h-[40rem] md:py-10">
             <div className="animate-float-up relative z-20 flex max-w-4xl flex-col items-center px-1 pt-2 text-center md:pt-4">
-              <div className="space-y-1 font-display text-[clamp(3rem,10vw,7.5rem)] leading-[0.9] tracking-[-0.045em] text-ink">
+              <div className="hero-headline-glow space-y-1 font-display text-[clamp(3rem,10vw,7.5rem)] leading-[0.9] tracking-[-0.045em] text-foreground">
                 <div className="relative inline-block">
                   <p>
                     <span className="italic text-primary">Clear</span>{" "}
-                    <span className="text-ink">signs.</span>
+                    <span className="text-foreground">signs.</span>
                   </p>
                 </div>
                 <div className="relative inline-block pt-1.5">
                   <p>
                     <span className="italic text-primary">Quality</span>{" "}
-                    <span className="text-ink">prints.</span>
+                    <span className="text-foreground">prints.</span>
                   </p>
                 </div>
               </div>
 
-              <p className="mt-8 max-w-2xl text-base leading-relaxed text-ink/80 md:text-lg">
+              <p className="mt-8 max-w-2xl text-base leading-relaxed text-foreground/80 md:text-lg">
                 Premium sign boards, print, and installation crafted for visibility that lasts.
               </p>
 
               <div className="mt-6 flex flex-wrap items-center justify-center gap-4 md:mt-7">
                 <Link
                   to="/work"
-                  className="micro-lift inline-flex items-center gap-2 rounded-full bg-ink px-7 py-4 text-base font-semibold text-ink-foreground transition-base hover:shadow-elevated"
+                  className="micro-lift inline-flex items-center gap-2 rounded-full bg-primary px-7 py-4 font-display text-base font-semibold tracking-wide text-primary-foreground transition-base hover:bg-primary-fixed hover:shadow-glow"
                 >
                   Start now →
                 </Link>
                 <Link
                   to="/contact"
-                  className="micro-lift inline-flex items-center gap-2 rounded-full border border-ink/15 bg-white/88 px-7 py-4 text-base font-semibold text-ink backdrop-blur transition-base hover:bg-white"
+                  className="glass-panel glass-panel-interactive micro-lift inline-flex items-center gap-2 rounded-full border border-secondary/45 bg-transparent px-7 py-4 font-display text-base font-semibold tracking-wide text-white transition-base hover:text-white"
                 >
                   Contact sales
                 </Link>
@@ -118,7 +112,7 @@ function Index() {
             </div>
             <Link
               to="/work"
-              className="micro-lift inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 text-sm font-medium text-ink-foreground transition-base hover:shadow-elevated"
+              className="micro-lift inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 font-display text-sm font-medium tracking-wide text-primary-foreground transition-base hover:bg-primary-fixed hover:shadow-glow"
             >
               View all services →
             </Link>
@@ -132,7 +126,7 @@ function Index() {
           <div className="mt-14 flex justify-center">
             <Link
               to="/work"
-              className="micro-lift inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 text-sm font-medium text-ink-foreground transition-base hover:shadow-elevated"
+              className="micro-lift inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 font-display text-sm font-medium tracking-wide text-primary-foreground transition-base hover:bg-primary-fixed hover:shadow-glow"
             >
               View all products →
             </Link>

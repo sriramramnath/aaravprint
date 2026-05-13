@@ -28,9 +28,9 @@ function HamburgerIcon() {
       className="flex w-6 flex-col items-end justify-center gap-[5px] [touch-action:manipulation]"
       aria-hidden
     >
-      <span className="h-0.5 w-6 max-w-full rounded-sm bg-ink" />
-      <span className="h-0.5 w-4 max-w-full rounded-sm bg-ink" />
-      <span className="h-0.5 w-2.5 max-w-full rounded-sm bg-ink" />
+      <span className="h-0.5 w-6 max-w-full rounded-sm bg-foreground" />
+      <span className="h-0.5 w-4 max-w-full rounded-sm bg-foreground" />
+      <span className="h-0.5 w-2.5 max-w-full rounded-sm bg-foreground" />
     </span>
   );
 }
@@ -74,7 +74,7 @@ export function SiteHeader() {
             )}
             decoding="async"
           />
-          <span className="font-display min-w-0 truncate text-base tracking-tight text-ink sm:text-lg md:text-xl">
+          <span className="font-display min-w-0 truncate text-base tracking-tight text-foreground sm:text-lg md:text-xl">
             {companyInfo.name}
           </span>
         </Link>
@@ -91,7 +91,7 @@ export function SiteHeader() {
                 to={link.to}
                 className={cn(
                   "micro-lift relative rounded-full px-4 py-2 text-sm font-medium transition-base",
-                  active ? "text-ink" : "text-muted-foreground hover:text-ink",
+                  active ? "text-foreground" : "text-muted-foreground hover:text-foreground",
                 )}
               >
                 {active && (
@@ -106,7 +106,7 @@ export function SiteHeader() {
         <div className="flex shrink-0 items-center gap-2">
           <Link
             to="/contact"
-            className="micro-lift hidden items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-ink-foreground transition-base hover:bg-ink/90 hover:shadow-elevated md:inline-flex"
+            className="micro-lift hidden items-center gap-2 rounded-full bg-primary px-5 py-2.5 font-display text-sm font-medium tracking-wide text-primary-foreground transition-base hover:bg-primary-fixed hover:shadow-glow md:inline-flex"
           >
             Get a quote
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -147,7 +147,7 @@ export function SiteHeader() {
                   {/* Bar: logo + close (logo matches collapsed header) */}
                   <div
                     className={cn(
-                      "flex shrink-0 items-center justify-between border-b border-ink/8 px-4 py-4 sm:px-6",
+                      "flex shrink-0 items-center justify-between border-b border-border px-4 py-4 sm:px-6",
                       "anim-mobile-menu-topbar motion-reduce:animate-none",
                     )}
                   >
@@ -166,10 +166,10 @@ export function SiteHeader() {
                       />
                     </Link>
                     <DialogPrimitive.Close
-                      className="micro-lift flex h-12 w-12 items-center justify-center rounded-full [touch-action:manipulation] active:bg-ink/5"
+                      className="micro-lift flex h-12 w-12 items-center justify-center rounded-full [touch-action:manipulation] active:bg-foreground/5"
                       aria-label="Close menu"
                     >
-                      <X className="h-5 w-5 text-ink" strokeWidth={2.25} />
+                      <X className="h-5 w-5 text-foreground" strokeWidth={2.25} />
                     </DialogPrimitive.Close>
                   </div>
 
@@ -192,7 +192,7 @@ export function SiteHeader() {
                             } as CSSProperties
                           }
                           className={cn(
-                            "micro-lift block min-h-14 w-full border-b border-ink/10 px-5 py-4 text-lg font-medium leading-snug tracking-tight text-ink [will-change:transform,opacity] [touch-action:manipulation] active:bg-ink/[0.04] sm:min-h-16 sm:px-6 sm:py-5 sm:text-xl",
+                            "micro-lift block min-h-14 w-full border-b border-border px-5 py-4 font-display text-lg font-medium leading-snug tracking-wide text-foreground [will-change:transform,opacity] [touch-action:manipulation] active:bg-foreground/[0.04] sm:min-h-16 sm:px-6 sm:py-5 sm:text-xl",
                             "motion-reduce:animate-none motion-reduce:opacity-100",
                             active && "bg-highlight/15",
                           )}
@@ -206,14 +206,14 @@ export function SiteHeader() {
                   {/* Bottom CTAs (thumb-friendly) */}
                   <div
                     className={cn(
-                      "shrink-0 space-y-3 border-t border-ink/8 bg-cream p-4 pb-[max(1.25rem,env(safe-area-inset-bottom))] pt-4 [will-change:transform,opacity] sm:px-6",
+                      "shrink-0 space-y-3 border-t border-border bg-cream p-4 pb-[max(1.25rem,env(safe-area-inset-bottom))] pt-4 [will-change:transform,opacity] sm:px-6",
                       "anim-mobile-menu-footer motion-reduce:animate-none",
                     )}
                   >
                     <Link
                       to="/contact"
                       onClick={() => setMobileOpen(false)}
-                      className="micro-lift flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl bg-ink px-5 text-base font-medium text-ink-foreground [touch-action:manipulation] active:opacity-90"
+                      className="micro-lift flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl bg-primary px-5 font-display text-base font-medium tracking-wide text-primary-foreground [touch-action:manipulation] hover:bg-primary-fixed active:opacity-90"
                     >
                       Get a quote
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -222,7 +222,7 @@ export function SiteHeader() {
                     </Link>
                     <a
                       href={`mailto:${companyInfo.email}`}
-                      className="micro-lift flex min-h-12 w-full items-center justify-center rounded-2xl border border-ink/15 bg-cream px-4 text-center text-sm font-medium leading-tight text-ink [touch-action:manipulation] active:bg-muted/50 sm:text-base"
+                      className="micro-lift flex min-h-12 w-full items-center justify-center rounded-2xl border border-secondary/40 bg-cream px-4 text-center font-display text-sm font-medium leading-tight text-foreground [touch-action:manipulation] active:bg-muted/50 sm:text-base"
                     >
                       Email us
                     </a>

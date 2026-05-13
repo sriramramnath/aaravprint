@@ -35,7 +35,7 @@ function ProjectError({ error, reset }: { error: Error; reset: () => void }) {
       <p className="mt-2 text-muted-foreground">{error.message}</p>
       <button
         onClick={() => { router.invalidate(); reset(); }}
-        className="micro-lift mt-6 rounded-full bg-ink px-6 py-3 text-sm text-ink-foreground"
+        className="micro-lift mt-6 rounded-full bg-primary px-6 py-3 font-display text-sm tracking-wide text-primary-foreground hover:bg-primary-fixed"
       >
         Retry
       </button>
@@ -120,7 +120,7 @@ function ProjectDetail() {
               {project.description}
             </p>
 
-            <div className="mt-12 grid grid-cols-3 gap-6 border-t border-ink/10 pt-8">
+            <div className="mt-12 grid grid-cols-3 gap-6 border-t border-border pt-8">
               {project.metrics.map((m) => (
                 <div key={m.label}>
                   <p className="font-display text-3xl text-primary md:text-5xl">{m.value}</p>
@@ -143,7 +143,7 @@ function ProjectDetail() {
           </h2>
           <Link
             to="/contact"
-            className="micro-lift mt-10 inline-flex items-center gap-3 rounded-full bg-ink px-8 py-4 text-sm font-medium text-ink-foreground transition-base hover:shadow-elevated"
+            className="micro-lift mt-10 inline-flex items-center gap-3 rounded-full bg-primary px-8 py-4 font-display text-sm font-medium tracking-wide text-primary-foreground transition-base hover:bg-primary-fixed hover:shadow-glow"
           >
             Request a quote for {project.name} →
           </Link>
