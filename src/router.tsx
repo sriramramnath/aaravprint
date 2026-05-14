@@ -38,13 +38,13 @@ function DefaultErrorComponent({ error, reset }: { error: Error; reset: () => vo
               router.invalidate();
               reset();
             }}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-fixed"
+            className="cta-energy inline-flex items-center justify-center px-5 py-2.5 text-sm transition-colors"
           >
             Try again
           </button>
           <a
             href="/"
-            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+            className="micro-lift inline-flex items-center justify-center rounded-[18px] border border-white/55 bg-[rgb(255,255,255/0.55)] px-5 py-2.5 text-sm font-medium text-foreground backdrop-blur-md transition-colors hover:bg-[rgb(255,255,255/0.72)]"
           >
             Go home
           </a>

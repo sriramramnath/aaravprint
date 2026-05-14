@@ -61,7 +61,7 @@ export function SiteHeader() {
       className={cn(
         "sticky top-0 z-40 transition-base",
         scrolled
-          ? "border-b border-border/60 bg-background/85 backdrop-blur-xl"
+          ? "border-b border-border/60 bg-ink/90 backdrop-blur-xl"
           : "border-b border-transparent bg-transparent",
       )}
     >
@@ -104,7 +104,7 @@ export function SiteHeader() {
                 to={link.to}
                 className={cn(
                   "micro-lift relative rounded-full px-4 py-2 text-sm font-medium transition-base",
-                  active ? "text-black" : "text-muted-foreground hover:text-foreground",
+                  active ? "text-[#1A1A1A]" : "text-muted-foreground hover:text-foreground",
                 )}
               >
                 {active && (
@@ -119,7 +119,7 @@ export function SiteHeader() {
         <div className="relative z-10 ml-auto flex shrink-0 items-center gap-2">
           <Link
             to="/contact"
-            className="micro-lift hidden items-center gap-2 rounded-full bg-primary px-5 py-2.5 font-display text-sm font-medium tracking-wide text-primary-foreground transition-base hover:bg-primary-fixed hover:shadow-glow md:inline-flex"
+            className="cta-energy hidden items-center gap-2 px-5 py-2.5 font-display text-sm tracking-wide transition-base md:inline-flex"
           >
             Get a quote
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -221,7 +221,7 @@ export function SiteHeader() {
                     <Link
                       to="/contact"
                       onClick={() => setMobileOpen(false)}
-                      className="micro-lift flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl bg-primary px-5 font-display text-base font-medium tracking-wide text-primary-foreground [touch-action:manipulation] hover:bg-primary-fixed active:opacity-90"
+                      className="cta-energy flex min-h-12 w-full items-center justify-center gap-2 px-5 py-3 font-display text-base tracking-wide [touch-action:manipulation]"
                     >
                       Get a quote
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

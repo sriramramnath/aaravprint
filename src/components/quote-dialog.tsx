@@ -35,19 +35,15 @@ export function QuoteDialog({ project, trigger }: Props) {
       <DialogTrigger asChild>{trigger}</DialogTrigger>
       <DialogContent className="max-w-xl border-border bg-card p-0">
         <div className="bg-ink p-8 text-ink-foreground">
-          <p className="text-xs uppercase tracking-[0.3em] text-highlight">
-            Request a quote
-          </p>
+          <p className="text-xs uppercase tracking-[0.3em] text-highlight">Request a quote</p>
           <DialogHeader className="mt-3 space-y-1 text-left">
             <DialogTitle className="font-display text-3xl text-ink-foreground">
               {project.name}
             </DialogTitle>
             <DialogDescription className="text-ink-foreground/70">
               Jobs in this range often start around{" "}
-              <span className="text-highlight">
-                {formatInr(project.startingPrice)}
-              </span>
-              . Tell us size, place of install, and timeline — we will reply with a clear estimate.
+              <span className="text-highlight">{formatInr(project.startingPrice)}</span>. Tell us
+              size, place of install, and timeline — we will reply with a clear estimate.
             </DialogDescription>
           </DialogHeader>
         </div>
@@ -86,7 +82,7 @@ export function QuoteDialog({ project, trigger }: Props) {
           </div>
           <button
             type="submit"
-            className="micro-lift w-full rounded-full bg-highlight py-3.5 text-sm font-medium text-highlight-foreground transition-base hover:shadow-glow"
+            className="cta-energy w-full py-3.5 text-sm transition-base"
           >
             Send quote request →
           </button>

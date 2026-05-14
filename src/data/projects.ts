@@ -396,8 +396,7 @@ export const projects: Project[] = [
   },
 ];
 
-export const getProject = (slug: string) =>
-  projects.find((project) => project.slug === slug);
+export const getProject = (slug: string) => projects.find((project) => project.slug === slug);
 
 export const heroImage = getProductImages("Led Board")[0] ?? "";
 

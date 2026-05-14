@@ -40,7 +40,7 @@ export function SiteFooter() {
             </h2>
             <Link
               to="/contact"
-              className="micro-lift mt-8 inline-flex items-center gap-3 rounded-full bg-highlight px-7 py-4 text-sm font-medium text-highlight-foreground transition-base hover:shadow-glow"
+              className="cta-energy mt-8 inline-flex items-center gap-3 px-7 py-4 text-sm transition-base"
             >
               Start the conversation
               <span className="text-lg">→</span>

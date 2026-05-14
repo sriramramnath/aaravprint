@@ -19,7 +19,7 @@ function NotFoundComponent() {
         <div className="mt-8">
           <Link
             to="/"
-            className="micro-lift inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-display text-sm font-medium tracking-wide text-primary-foreground transition-base hover:bg-primary-fixed hover:shadow-glow"
+            className="cta-energy inline-flex items-center gap-2 px-6 py-3 font-display text-sm tracking-wide transition-base"
           >
             ← Back home
           </Link>

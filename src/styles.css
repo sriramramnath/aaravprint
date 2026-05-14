@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap");
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
@@ -6,22 +6,21 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Totality — Cosmic premium design system (design.md).
- * Obsidian surfaces, warm gold primary, coral accent. Glassmorphism + radial depth.
- * Typography: Space Grotesk (display, labels) + Inter (body).
+ * Modern Yellow Vibrant — design.md
+ * Poppins headings, Inter body, glass cards, bold yellow gradients, light airy layout.
  */
 
 @theme inline {
-  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Poppins", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 
-  --radius-sm: 0.125rem;
-  --radius-md: 0.375rem;
-  --radius-lg: 0.5rem;
-  --radius-xl: 0.75rem;
-  --radius-2xl: 1rem;
-  --radius-3xl: 1.25rem;
-  --radius-4xl: 1.5rem;
+  --radius-sm: 0.625rem;
+  --radius-md: 0.875rem;
+  --radius-lg: 1.125rem;
+  --radius-xl: 1.375rem;
+  --radius-2xl: 1.75rem;
+  --radius-3xl: 2rem;
+  --radius-4xl: 2.25rem;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -31,6 +30,7 @@
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-primary-fixed: var(--primary-fixed);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
@@ -50,8 +50,6 @@
   --color-highlight: var(--highlight);
   --color-highlight-foreground: var(--highlight-foreground);
 
-  --color-primary-fixed: var(--totality-primary-fixed);
-
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
@@ -68,134 +66,93 @@
 }
 
 :root {
-  --radius: 0.5rem;
+  --radius: 1.125rem;
 
-  /* design.md — Totality tokens */
-  --totality-surface: #121318;
-  --totality-surface-lowest: #0d0e13;
-  --totality-surface-low: #1a1b21;
-  --totality-surface-container: #1e1f25;
-  --totality-surface-high: #292a2f;
-  --totality-surface-highest: #34343a;
-  --totality-on-surface: #e3e1e9;
-  --totality-on-surface-variant: #d0c6ab;
-  --totality-outline-variant: #554a3f;
-  --totality-primary: #fcd305;
-  --totality-on-primary: #2f2600;
-  --totality-primary-container: color-mix(in srgb, #291f00 14%, #fcd305);
-  --totality-on-primary-container: #2f2600;
-  --totality-primary-fixed: color-mix(in srgb, #1b1500 18%, #fcd305);
-  /* Warm coral accent — vivid without blue luminance */
-  --totality-secondary: #ffd4c8;
-  --totality-on-secondary: #3d1710;
-  --totality-secondary-container: #ff7a54;
-  --totality-tertiary-container: #e7d1ff;
-  --totality-on-tertiary-container: #6b5586;
+  /* design.md palette */
+  --yellow-primary: #ffd60a;
+  --yellow-bright-gold: #ffb703;
+  --yellow-soft: #ffe45e;
+  --page-bg: #fffbea;
 
-  /* Semantic aliases (existing utility class names) */
-  --cream: var(--totality-surface-container);
-  --background: var(--totality-surface);
-  --foreground: var(--totality-on-surface);
+  --background: var(--page-bg);
+  --foreground: #1a1a1a;
 
-  --ink: var(--totality-surface-lowest);
-  --ink-foreground: var(--totality-on-surface);
+  --cream: color-mix(in srgb, var(--yellow-primary) 9%, white);
+  /* Warm contrast bands — not heavy dark UI */
+  --ink: color-mix(in srgb, var(--yellow-soft) 28%, white);
+  --ink-foreground: #1a1a1a;
 
-  --highlight: var(--totality-primary);
-  /* Near-black on gold / vivid yellow for buttons and chips */
-  --highlight-foreground: var(--totality-surface-lowest);
+  --highlight: var(--yellow-primary);
+  --highlight-foreground: #1a1a1a;
 
-  --card: color-mix(in srgb, var(--totality-surface-highest) 22%, transparent);
-  --card-foreground: var(--totality-on-surface);
-  --popover: var(--totality-surface-high);
-  --popover-foreground: var(--totality-on-surface);
+  --card: rgb(255 255 255 / 0.72);
+  --card-foreground: #1a1a1a;
+  --popover: rgb(255 255 255 / 0.92);
+  --popover-foreground: #1a1a1a;
 
-  --primary: var(--totality-primary);
-  /* Cream primary pills — match vivid yellows with dark ink */
-  --primary-foreground: var(--totality-surface-lowest);
+  --primary: var(--yellow-primary);
+  --primary-foreground: #1a1a1a;
+  --primary-fixed: var(--yellow-bright-gold);
 
-  --secondary: color-mix(in srgb, var(--totality-secondary) 14%, transparent);
-  --secondary-foreground: var(--totality-secondary);
+  --secondary: rgb(255 214 10 / 0.14);
+  --secondary-foreground: #1a1a1a;
 
-  --muted: var(--totality-surface-high);
-  --muted-foreground: var(--totality-on-surface-variant);
+  --muted: rgb(107 114 128 / 0.1);
+  --muted-foreground: #6b7280;
 
-  --accent: var(--totality-primary-container);
-  --accent-foreground: var(--totality-surface-lowest);
+  --accent: rgb(255 214 10 / 0.22);
+  --accent-foreground: #1a1a1a;
 
-  --destructive: #93000a;
-  --destructive-foreground: #ffdad6;
+  --destructive: #dc2626;
+  --destructive-foreground: #fff;
 
-  --border: color-mix(in srgb, var(--totality-outline-variant) 55%, transparent);
-  --input: var(--totality-surface-lowest);
-  --ring: color-mix(in srgb, var(--totality-primary-fixed) 88%, var(--totality-primary-container));
+  --border: rgb(255 255 255 / 0.4);
+  --input: rgb(255 255 255 / 0.65);
+  --ring: color-mix(in srgb, var(--yellow-primary) 45%, #1a1a1a);
 
-  --chart-1: var(--totality-primary);
-  --chart-2: var(--totality-secondary-container);
-  --chart-3: var(--totality-tertiary-container);
-  --chart-4: var(--totality-on-surface-variant);
-  --chart-5: var(--totality-surface-highest);
+  --chart-1: var(--yellow-primary);
+  --chart-2: var(--yellow-bright-gold);
+  --chart-3: var(--yellow-soft);
+  --chart-4: #6b7280;
+  --chart-5: #cbd5e1;
 
-  --sidebar: var(--totality-surface-low);
-  --sidebar-foreground: var(--totality-on-surface);
-  --sidebar-primary: var(--totality-primary);
-  --sidebar-primary-foreground: var(--totality-surface-lowest);
-  --sidebar-accent: var(--totality-surface-high);
-  --sidebar-accent-foreground: var(--totality-on-surface);
+  --sidebar: rgb(255 253 246 / 0.95);
+  --sidebar-foreground: #1a1a1a;
+  --sidebar-primary: var(--yellow-primary);
+  --sidebar-primary-foreground: #1a1a1a;
+  --sidebar-accent: rgb(255 214 10 / 0.12);
+  --sidebar-accent-foreground: #1a1a1a;
   --sidebar-border: var(--border);
-  --sidebar-ring: color-mix(in srgb, var(--totality-primary-fixed) 88%, var(--totality-primary-container));
+  --sidebar-ring: var(--ring);
 
-  /* Gradients — eclipse / nebula depth */
-  --gradient-ink: linear-gradient(
-    145deg,
-    var(--totality-surface-lowest) 0%,
-    var(--totality-surface-low) 45%,
-    #1e1430 100%
-  );
-  --gradient-spark: linear-gradient(
-    120deg,
-    var(--totality-primary-fixed) 0%,
-    var(--totality-primary-container) 44%,
-    color-mix(in srgb, var(--totality-secondary-container) 85%, transparent) 100%
-  );
-  --gradient-editorial: radial-gradient(
-      ellipse 120% 80% at 50% 16%,
-      color-mix(in srgb, var(--totality-tertiary-container) 26%, transparent) 0%,
-      transparent 55%
-    ),
-    radial-gradient(
-      circle at 88% 78%,
-      color-mix(in srgb, var(--totality-primary-container) 14%, transparent) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 8% 72%,
-      color-mix(in srgb, var(--totality-secondary-container) 10%, transparent) 0%,
-      transparent 44%
-    );
+  --gradient-ink: linear-gradient(145deg, #fff5d6 0%, #fffbea 52%, color-mix(in srgb, var(--yellow-soft) 22%, white) 100%);
+  --gradient-spark: linear-gradient(135deg, var(--yellow-primary) 0%, var(--yellow-bright-gold) 100%);
+  --gradient-editorial:
+    radial-gradient(circle at 0% 0%, rgb(255 214 10 / 0.35), transparent 50%),
+    radial-gradient(circle at 100% 8%, rgb(255 183 3 / 0.22), transparent 46%),
+    radial-gradient(circle at 72% 100%, rgb(255 228 94 / 0.28), transparent 52%);
 
-  --shadow-soft: 0 1px 1px rgb(0 0 0 / 35%), 0 12px 40px -16px rgb(0 0 0 / 55%);
-  --shadow-elevated: 0 28px 64px -28px rgb(0 0 0 / 65%);
-  --shadow-glow: 0 22px 56px -14px color-mix(in srgb, var(--totality-primary-container) 42%, transparent);
-  --shadow-glow-accent: 0 20px 50px -16px color-mix(in srgb, var(--totality-secondary-container) 32%, transparent);
+  --shadow-soft: 0 10px 40px rgb(0 0 0 / 0.08);
+  --shadow-elevated: 0 20px 56px rgb(0 0 0 / 0.1);
+  --shadow-glow: 0 0 60px rgb(255 214 10 / 0.25);
+  --shadow-primary: 0 10px 30px rgb(255 214 10 / 0.35);
 
   --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --duration-fast: 160ms;
-  --duration-base: 260ms;
-  --duration-slow: 420ms;
-  --transition-base: all 0.4s var(--ease-spring);
+  --duration-base: 250ms;
+  --duration-slow: 380ms;
+  --transition-base: all 0.25s ease;
 
-  /* Glass — card-glass-level-2 (design.md) */
-  --glass-bg: rgb(52 52 58 / 0.2);
-  --glass-bg-hover: rgb(56 57 63 / 0.4);
-  --glass-stroke: rgb(255 255 255 / 0.1);
+  --glass-bg: rgb(255 255 255 / 0.72);
+  --glass-bg-hover: rgb(255 255 255 / 0.88);
+  --glass-stroke: rgb(255 255 255 / 0.4);
 }
 
 .dark {
-  /* Same cosmic palette when `.dark` is used on a subtree */
-  --background: var(--totality-surface);
-  --foreground: var(--totality-on-surface);
+  --foreground: var(--page-bg);
+  --background: #1f1f1f;
 }
 
 @layer base {
@@ -213,26 +170,25 @@
     background-attachment: fixed;
     color: var(--color-foreground);
     font-family: var(--font-sans);
+    font-weight: 400;
     font-feature-settings: "kern" 1;
     -webkit-font-smoothing: antialiased;
   }
 
-  h1 {
+  h1,
+  h2,
+  h3 {
     font-family: var(--font-display);
     font-weight: 700;
-    letter-spacing: -0.04em;
+    letter-spacing: -0.03em;
   }
 
-  h2, h3 {
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-display);
     font-weight: 600;
     letter-spacing: -0.02em;
-  }
-
-  h4, h5 {
-    font-family: var(--font-display);
-    font-weight: 600;
-    letter-spacing: 0;
   }
 
   ::selection {
@@ -246,12 +202,12 @@
   textarea,
   select {
     transition:
-      color var(--duration-fast) var(--ease-standard),
-      background-color var(--duration-fast) var(--ease-standard),
-      border-color var(--duration-fast) var(--ease-standard),
-      box-shadow var(--duration-base) var(--ease-out),
-      transform var(--duration-fast) var(--ease-standard),
-      opacity var(--duration-fast) var(--ease-standard);
+      color var(--duration-base) ease,
+      background-color var(--duration-base) ease,
+      border-color var(--duration-base) ease,
+      box-shadow var(--duration-base) ease,
+      transform var(--duration-base) ease,
+      opacity var(--duration-fast) ease;
   }
 
   button:active,
@@ -274,34 +230,65 @@
 }
 
 @layer utilities {
-  .font-display { font-family: var(--font-display); }
-  .font-sans { font-family: var(--font-sans); }
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-sans {
+    font-family: var(--font-sans);
+  }
 
-  .bg-ink { background-color: var(--color-ink); color: var(--color-ink-foreground); }
-  .bg-cream { background-color: var(--color-cream); }
-  .bg-highlight { background-color: var(--color-highlight); color: var(--color-highlight-foreground); }
-  /* Main reading color on obsidian (display text is not the same as bg-ink token). */
-  .text-ink { color: var(--color-foreground); }
-  .text-highlight { color: var(--color-highlight); }
-  .border-ink { border-color: color-mix(in srgb, var(--totality-outline-variant) 65%, transparent); }
+  .bg-ink {
+    background-color: var(--color-ink);
+    color: var(--color-ink-foreground);
+  }
+  .bg-cream {
+    background-color: var(--color-cream);
+  }
+  .bg-highlight {
+    background-color: var(--color-highlight);
+    color: var(--color-highlight-foreground);
+  }
+  .text-ink {
+    color: var(--color-foreground);
+  }
+  .text-highlight {
+    color: var(--yellow-bright-gold);
+  }
+  .border-ink {
+    border-color: color-mix(in srgb, var(--foreground) 10%, transparent);
+  }
 
-  .gradient-ink { background-image: var(--gradient-ink); }
-  .gradient-spark { background-image: var(--gradient-spark); }
-  .gradient-editorial { background-image: var(--gradient-editorial); }
+  .gradient-ink {
+    background-image: var(--gradient-ink);
+  }
+  .gradient-spark {
+    background-image: var(--gradient-spark);
+  }
+  .gradient-editorial {
+    background-image: var(--gradient-editorial);
+  }
 
-  .shadow-soft { box-shadow: var(--shadow-soft); }
-  .shadow-elevated { box-shadow: var(--shadow-elevated); }
-  .shadow-glow { box-shadow: var(--shadow-glow); }
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
 
-  .transition-base { transition: var(--transition-base); }
+  .transition-base {
+    transition: var(--transition-base);
+  }
 
   .micro-lift {
     transition:
-      transform var(--duration-base) var(--ease-out),
-      box-shadow var(--duration-base) var(--ease-out),
-      background-color var(--duration-fast) var(--ease-standard),
-      color var(--duration-fast) var(--ease-standard),
-      border-color var(--duration-fast) var(--ease-standard);
+      transform var(--duration-base) ease,
+      box-shadow var(--duration-base) ease,
+      background-color var(--duration-base) ease,
+      color var(--duration-base) ease,
+      border-color var(--duration-base) ease;
   }
   .micro-lift:hover {
     transform: translateY(-2px);
@@ -330,69 +317,90 @@
 
   .micro-card {
     transition:
-      transform var(--duration-base) var(--ease-out),
-      box-shadow var(--duration-base) var(--ease-out),
-      border-color var(--duration-fast) var(--ease-standard);
+      transform var(--duration-base) ease,
+      box-shadow var(--duration-base) ease,
+      border-color var(--duration-base) ease;
     transform-origin: 50% 65%;
   }
   .micro-card:hover {
     transform: translateY(-3px);
-    box-shadow: var(--shadow-glow-accent);
+    box-shadow: var(--shadow-glow), var(--shadow-soft);
   }
 
   .glass-panel {
     background-color: var(--glass-bg);
-    box-shadow: inset 0 0 0 1px var(--glass-stroke);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow:
+      inset 0 0 0 1px var(--glass-stroke),
+      0 10px 40px rgb(0 0 0 / 0.06);
   }
 
   .glass-panel-interactive:hover {
     background-color: var(--glass-bg-hover);
     box-shadow:
-      inset 0 0 0 1px rgb(255 255 255 / 0.14),
-      var(--shadow-glow-accent);
+      inset 0 0 0 1px rgb(255 255 255 / 0.55),
+      var(--shadow-glow),
+      var(--shadow-soft);
   }
 
   .hero-headline-glow {
     text-shadow:
-      0 0 1px color-mix(in srgb, var(--totality-primary) 35%, transparent),
-      0 2px 28px color-mix(in srgb, var(--totality-surface-lowest) 55%, transparent);
+      0 0 40px rgb(0 0 0 / 0.75),
+      0 2px 12px rgb(0 0 0 / 0.85),
+      0 1px 3px rgb(0 0 0 / 0.6),
+      0 0 1px rgb(255 255 255 / 0.12);
+  }
+
+  .hero-tagline-shadow {
+    text-shadow:
+      0 1px 10px rgb(0 0 0 / 0.75),
+      0 2px 24px rgb(0 0 0 / 0.55);
   }
 
   .bg-hero-veil {
     background:
-      radial-gradient(
-        ellipse 92% 72% at 50% 36%,
-        color-mix(in srgb, var(--totality-tertiary-container) 22%, transparent) 0%,
-        transparent 54%
-      ),
-      radial-gradient(
-        circle at 82% 86%,
-        color-mix(in srgb, var(--totality-primary-container) 12%, transparent) 0%,
-        transparent 50%
-      ),
+      radial-gradient(circle at 50% 22%, rgb(0 0 0 / 0.5), transparent 58%),
       linear-gradient(
         180deg,
-        color-mix(in srgb, var(--totality-surface-lowest) 82%, transparent) 0%,
-        color-mix(in srgb, var(--totality-surface) 88%, transparent) 100%
+        rgb(0 0 0 / 0.58) 0%,
+        rgb(0 0 0 / 0.48) 42%,
+        rgb(0 0 0 / 0.72) 100%
       );
   }
 
   .container-editorial {
     width: 100%;
     min-width: 0;
-    max-width: 1400px;
+    max-width: 75rem;
     margin-left: auto;
     margin-right: auto;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
   @media (min-width: 768px) {
-    .container-editorial { padding-left: 2.5rem; padding-right: 2.5rem; }
+    .container-editorial {
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+    }
   }
 
-  .text-balance { text-wrap: balance; }
+  .cta-energy {
+    border-radius: 18px;
+    background: linear-gradient(135deg, #ffd60a, #ffb703);
+    color: #1a1a1a;
+    font-weight: 600;
+    box-shadow: 0 10px 30px rgba(255, 214, 10, 0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .cta-energy:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 14px 40px rgba(255, 214, 10, 0.45);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
 
   .marquee {
     display: flex;
@@ -403,13 +411,23 @@
 }
 
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 @keyframes float-up {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes section-reveal {

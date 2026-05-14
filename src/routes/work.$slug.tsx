@@ -35,7 +35,7 @@ function ProjectError({ error, reset }: { error: Error; reset: () => void }) {
       <p className="mt-2 text-muted-foreground">{error.message}</p>
       <button
         onClick={() => { router.invalidate(); reset(); }}
-        className="micro-lift mt-6 rounded-full bg-primary px-6 py-3 font-display text-sm tracking-wide text-primary-foreground hover:bg-primary-fixed"
+            className="cta-energy inline-flex items-center justify-center px-6 py-3 font-display text-sm tracking-wide transition-base"
       >
         Retry
       </button>
@@ -86,7 +86,7 @@ function ProjectDetail() {
             </p>
             <Link
               to="/contact"
-              className="micro-lift mt-5 inline-flex items-center gap-2 rounded-full bg-highlight px-6 py-3 text-sm font-medium text-highlight-foreground transition-base hover:shadow-glow"
+              className="micro-lift mt-5 inline-flex items-center gap-2 rounded-[18px] bg-gradient-to-br from-[#FFD60A] to-[#FFB703] px-6 py-3 text-sm font-semibold text-[#1A1A1A] shadow-[0_10px_30px_rgba(255,214,10,0.35)] transition-base hover:-translate-y-0.5 hover:shadow-glow"
             >
               Get a quote →
             </Link>
@@ -143,7 +143,7 @@ function ProjectDetail() {
           </h2>
           <Link
             to="/contact"
-            className="micro-lift mt-10 inline-flex items-center gap-3 rounded-full bg-primary px-8 py-4 font-display text-sm font-medium tracking-wide text-primary-foreground transition-base hover:bg-primary-fixed hover:shadow-glow"
+            className="cta-energy mt-10 inline-flex items-center gap-3 px-8 py-4 font-display text-sm tracking-wide transition-base"
           >
             Request a quote for {project.name} →
           </Link>

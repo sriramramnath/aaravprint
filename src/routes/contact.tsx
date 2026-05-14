@@ -271,7 +271,7 @@ function ContactPage() {
                             type="button"
                             key={`sel-${s}`}
                             onClick={() => toggleProduct(s)}
-                            className={`micro-lift ${chipClass} border border-border bg-primary text-primary-foreground hover:bg-primary-fixed sm:inline-flex sm:w-auto`}
+                            className={`micro-lift ${chipClass} rounded-full border border-border bg-gradient-to-br from-[#FFD60A] to-[#FFB703] font-semibold text-[#1A1A1A] shadow-[0_8px_20px_rgba(255,214,10,0.28)] hover:brightness-105 sm:inline-flex sm:w-auto`}
                           >
                             {s}
                           </button>
@@ -290,7 +290,7 @@ function ContactPage() {
                           type="button"
                           key={s}
                           onClick={() => toggleProduct(s)}
-                          className={`micro-lift ${chipClass} border border-border bg-background text-muted-foreground hover:border-muted-foreground/50 hover:text-white sm:inline-flex sm:w-auto`}
+                          className={`micro-lift ${chipClass} border border-white/55 bg-[rgb(255,255,255/0.5)] backdrop-blur-sm hover:border-muted-foreground/35 hover:text-foreground sm:inline-flex sm:w-auto`}
                         >
                           {s}
                         </button>
@@ -312,7 +312,7 @@ function ContactPage() {
                     className={
                       budget === b
                         ? `micro-lift ${budgetClass} border-highlight bg-highlight text-highlight-foreground`
-                        : `micro-lift ${budgetClass} border-border bg-transparent text-muted-foreground hover:border-muted-foreground/50 hover:text-white`
+                        : `micro-lift ${budgetClass} border-border bg-transparent text-muted-foreground hover:border-muted-foreground/35 hover:text-foreground`
                     }
                   >
                     {b}
@@ -345,7 +345,7 @@ function ContactPage() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="micro-lift h-12 w-full touch-manipulation rounded-full bg-primary font-display text-sm font-medium tracking-wide text-primary-foreground transition-base hover:bg-primary-fixed hover:shadow-glow disabled:cursor-not-allowed disabled:opacity-60"
+              className="cta-energy h-12 w-full touch-manipulation px-6 font-display text-sm tracking-wide transition-base disabled:cursor-not-allowed disabled:opacity-60"
             >
               {isSubmitting ? "Sending…" : "Send message →"}
             </button>

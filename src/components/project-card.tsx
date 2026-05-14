@@ -79,9 +79,9 @@ export function ProjectCard({ project, index }: Props) {
 
   return (
     <article className={`group min-w-0 max-w-full ${offset}`}>
-      <div className="micro-card block min-w-0 overflow-hidden rounded-3xl border border-white/[0.07] bg-card shadow-soft transition-base hover:border-secondary/25 hover:shadow-elevated">
+      <div className="micro-card block min-w-0 overflow-hidden rounded-[28px] border border-white/50 bg-card/90 backdrop-blur-[14px] shadow-[0_10px_40px_rgba(0,0,0,0.08)] transition-base hover:border-white/65 hover:shadow-[0_10px_40px_rgba(0,0,0,0.1)]">
         <div
-          className="relative aspect-[4/3] min-w-0 overflow-hidden overflow-x-clip rounded-b-none bg-ink/95"
+          className="relative aspect-[4/3] min-w-0 overflow-hidden overflow-x-clip rounded-b-none bg-[linear-gradient(180deg,rgb(255,251,234/0.95),rgb(255,255,255/0.88))]"
           onMouseEnter={() => {
             if (typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches) {
               pauseRotation.current = true;
@@ -132,7 +132,7 @@ export function ProjectCard({ project, index }: Props) {
               })}
             </div>
           ) : null}
-          <div className="absolute left-4 top-4 z-10 rounded-full border border-white/10 px-3 py-1 font-display text-[11px] font-medium uppercase tracking-[0.12em] text-foreground glass-panel backdrop-blur-md">
+          <div className="absolute left-4 top-4 z-10 rounded-full border border-white/55 px-3 py-1 font-display text-[11px] font-semibold uppercase tracking-[0.12em] text-foreground glass-panel backdrop-blur-md">
             {project.category}
           </div>
           <Dialog>
@@ -140,12 +140,12 @@ export function ProjectCard({ project, index }: Props) {
               <Button
                 type="button"
                 variant="default"
-                className="micro-lift absolute bottom-4 right-4 z-10 rounded-full border border-primary/25 px-5 text-xs font-semibold uppercase tracking-wider shadow-soft"
+                className="micro-lift absolute bottom-4 right-4 z-10 rounded-[14px] border border-[rgb(255,214,10/0.45)] px-5 text-xs font-semibold uppercase tracking-wider shadow-[0_8px_24px_rgba(255,214,10,0.25)]"
               >
                 View
               </Button>
             </DialogTrigger>
-            <DialogContent className="w-[98vw] max-w-6xl overflow-hidden rounded-2xl border border-border bg-background p-3 shadow-elevated sm:w-[95vw] sm:rounded-lg sm:bg-background/95 sm:p-6 sm:backdrop-blur-sm lg:w-[92vw]">
+            <DialogContent className="w-[98vw] max-w-6xl overflow-hidden rounded-[28px] border border-white/45 bg-[rgb(255,255,255/0.92)] p-3 shadow-[0_20px_56px_rgba(0,0,0,0.1)] backdrop-blur-xl sm:w-[95vw] sm:p-6 lg:w-[92vw]">
               <DialogHeader className="px-1 pt-1 text-center sm:px-0 sm:pt-0 sm:text-center">
                 <DialogTitle className="mx-auto w-full px-10 text-center font-display text-base leading-snug text-ink sm:px-12 sm:text-2xl">
                   {project.name}

@@ -113,7 +113,7 @@ function StudioPage() {
           </h2>
           <Link
             to="/contact"
-            className="micro-lift mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 font-display text-sm font-medium tracking-wide text-primary-foreground transition-base hover:bg-primary-fixed hover:shadow-glow"
+            className="cta-energy mt-8 inline-flex items-center gap-2 px-7 py-3.5 font-display text-sm tracking-wide transition-base"
           >
             Contact Aarav Signboard →
           </Link>
