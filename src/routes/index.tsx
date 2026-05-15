@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useMemo, useState } from "react";
-import { projects, homeHeroImage } from "@/data/projects";
+import { useEffect, useState } from "react";
+import { projects, heroImages, homeHeroImage } from "@/data/projects";
 import { ProjectCard } from "@/components/project-card";
 import { companyInfo } from "@/lib/company";
 
@@ -24,10 +24,7 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const featured = projects.slice(0, 4);
-  const heroShuffleImages = useMemo(() => {
-    const unique = Array.from(new Set(projects.flatMap((project) => project.images)));
-    return unique;
-  }, []);
+  const heroShuffleImages = heroImages;
   const [activeShuffle, setActiveShuffle] = useState(0);
 
   useEffect(() => {
@@ -62,22 +59,18 @@ function Index() {
         <div className="container-editorial">
           <div className="relative flex min-h-[31rem] items-center justify-center py-6 md:min-h-[40rem] md:py-10">
             <div className="animate-float-up relative z-20 flex max-w-4xl flex-col items-center px-1 pt-2 text-center md:pt-4">
-              <div className="hero-headline-glow space-y-1 font-display text-[clamp(2.25rem,10vw,4rem)] font-bold leading-[1.08] tracking-[-0.03em] text-white md:text-[clamp(2.75rem,8vw,4rem)]">
-                <div className="relative inline-block">
-                  <p>
-                    <span className="text-primary">Clear</span>{" "}
-                    <span className="text-white">signs.</span>
-                  </p>
-                </div>
-                <div className="relative inline-block pt-1.5">
-                  <p>
-                    <span className="text-primary">Quality</span>{" "}
-                    <span className="text-white">prints.</span>
-                  </p>
-                </div>
+              <div className="hero-headline-glow space-y-1 font-display text-[clamp(2.25rem,10vw,4rem)] font-bold leading-[1.08] tracking-[-0.03em] text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.55)] md:text-[clamp(2.75rem,8vw,4rem)]">
+                <p className="leading-[1.08]">
+                  <span className="text-primary">Clear</span>{" "}
+                  <span className="text-white">signs.</span>
+                </p>
+                <p className="leading-[1.08]">
+                  <span className="text-primary">Quality</span>{" "}
+                  <span className="text-white">prints.</span>
+                </p>
               </div>
 
-              <p className="hero-tagline-shadow mt-8 max-w-2xl text-sm leading-relaxed text-[#eaecef] md:text-base">
+              <p className="hero-tagline-shadow mt-8 max-w-2xl text-sm leading-relaxed text-[#eaecef] drop-shadow-[0_2px_6px_rgba(0,0,0,0.5)] md:text-base">
                 Premium sign boards, print, and installation crafted for visibility that lasts.
               </p>
 

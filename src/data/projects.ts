@@ -19,6 +19,16 @@ const productImagesByFolder = Object.entries(productImageModules).reduce(
 const getProductImages = (folder: string) =>
   (productImagesByFolder[folder] ?? []).slice().sort((a, b) => a.localeCompare(b));
 
+// Hero visuals — loaded from their own folder.
+const heroImageModules = import.meta.glob("../assets/hero/*.{jpeg,jpg,png,webp}", {
+  eager: true,
+  import: "default",
+}) as Record<string, string>;
+
+export const heroImages: string[] = Object.values(heroImageModules).sort((a, b) =>
+  a.localeCompare(b),
+);
+
 export type Project = {
   slug: string;
   name: string;
@@ -401,7 +411,7 @@ export const getProject = (slug: string) => projects.find((project) => project.s
 export const heroImage = getProductImages("Led Board")[0] ?? "";
 
 /** Home page hero visual (hoarding works). */
-export const homeHeroImage = getProductImages("hoarding works")[0] ?? heroImage;
+export const homeHeroImage = heroImages[0] ?? heroImage;
 
 /** All product line names — contact form, about capabilities. */
 export const productServiceLabels = projects.map((p) => p.name);
