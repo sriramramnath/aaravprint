@@ -31,11 +31,15 @@ function ProjectError({ error, reset }: { error: Error; reset: () => void }) {
   const router = useRouter();
   return (
     <div className="container-editorial py-24 text-center">
-      <h1 className="font-display text-4xl text-ink">Couldn't load project</h1>
+      <h1 className="font-display text-3xl font-bold text-white md:text-4xl">Couldn't load project</h1>
       <p className="mt-2 text-muted-foreground">{error.message}</p>
       <button
-        onClick={() => { router.invalidate(); reset(); }}
-            className="cta-energy inline-flex items-center justify-center px-6 py-3 font-display text-sm tracking-wide transition-base"
+        type="button"
+        onClick={() => {
+          router.invalidate();
+          reset();
+        }}
+        className="cta-energy mt-6 inline-flex items-center justify-center px-6 py-3 font-display text-sm transition-base"
       >
         Retry
       </button>
@@ -46,8 +50,8 @@ function ProjectError({ error, reset }: { error: Error; reset: () => void }) {
 function ProjectNotFound() {
   return (
     <div className="container-editorial py-24 text-center">
-      <h1 className="font-display text-5xl text-ink">Project not found</h1>
-      <Link to="/work" className="micro-link mt-6 inline-block text-sm">
+      <h1 className="font-display text-4xl font-bold text-white">Project not found</h1>
+      <Link to="/work" className="micro-link mt-6 inline-block text-sm font-medium">
         ← Back to all work
       </Link>
     </div>
@@ -60,33 +64,35 @@ function ProjectDetail() {
 
   return (
     <div className="bg-background">
-      {/* HERO */}
-      <section className="container-editorial pb-12 pt-12 md:pb-16 md:pt-16">
-        <Link to="/work" className="micro-link inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-muted-foreground hover:text-ink">
+      <section className="container-editorial pb-20 pt-16 md:pb-20 md:pt-20">
+        <Link
+          to="/work"
+          className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground transition-colors hover:text-primary"
+        >
           ← All work
         </Link>
-        <div className="mt-8 grid gap-8 md:grid-cols-12 md:items-end">
+        <div className="mt-10 grid gap-8 md:grid-cols-12 md:items-end">
           <div className="md:col-span-8">
-            <p className="text-xs uppercase tracking-[0.3em] text-primary">
-              {project.category} · {project.year}
+            <p className="text-xs font-medium uppercase tracking-[0.28em] text-primary">
+              {project.category} · <span className="font-numeric">{project.year}</span>
             </p>
-            <h1 className="mt-4 font-display text-[clamp(3rem,8vw,7rem)] leading-[0.9] text-ink">
+            <h1 className="mt-4 font-display text-[clamp(2.25rem,6vw,3rem)] font-bold leading-[1.08] tracking-tight text-white">
               {project.name}
             </h1>
-            <p className="mt-6 max-w-2xl font-display text-2xl italic text-ink/70 md:text-3xl text-balance">
+            <p className="mt-6 max-w-2xl text-lg italic leading-snug text-[#eaecef]/80 md:text-xl text-balance">
               {project.tagline}
             </p>
           </div>
           <div className="md:col-span-4 md:text-right">
-            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+            <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">
               Starting from
             </p>
-            <p className="mt-2 font-display text-4xl text-ink">
+            <p className="mt-2 font-numeric text-3xl font-semibold tracking-tight text-white md:text-4xl">
               {formatInr(project.startingPrice)}
             </p>
             <Link
               to="/contact"
-              className="micro-lift mt-5 inline-flex items-center gap-2 rounded-[18px] bg-gradient-to-br from-[#FFD60A] to-[#FFB703] px-6 py-3 text-sm font-semibold text-[#1A1A1A] shadow-[0_10px_30px_rgba(255,214,10,0.35)] transition-base hover:-translate-y-0.5 hover:shadow-glow"
+              className="cta-energy mt-5 inline-flex min-h-10 items-center gap-2 px-6 py-2.5 text-sm font-semibold"
             >
               Get a quote →
             </Link>
@@ -94,37 +100,35 @@ function ProjectDetail() {
         </div>
       </section>
 
-      {/* CAROUSEL */}
-      <section className="container-editorial pb-16">
+      <section className="container-editorial pb-20">
         <ProjectCarousel images={project.images} alt={project.name} />
       </section>
 
-      {/* DETAILS GRID */}
-      <section className="bg-cream py-24 md:py-32">
+      <section className="border-t border-border bg-card py-20 text-card-foreground md:py-20">
         <div className="container-editorial grid gap-12 md:grid-cols-12">
           <div className="md:col-span-4">
-            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Produced for</p>
-            <p className="mt-2 font-display text-2xl text-ink">{project.client}</p>
+            <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">Produced for</p>
+            <p className="mt-2 font-display text-xl font-semibold text-white md:text-2xl">{project.client}</p>
 
-            <p className="mt-10 text-xs uppercase tracking-[0.3em] text-muted-foreground">Scope</p>
-            <ul className="mt-3 space-y-1.5">
+            <p className="mt-10 text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">Scope</p>
+            <ul className="mt-3 space-y-1.5 text-[#eaecef]">
               {project.scope.map((s) => (
-                <li key={s} className="text-ink">— {s}</li>
+                <li key={s}>— {s}</li>
               ))}
             </ul>
           </div>
 
           <div className="md:col-span-8">
-            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Details</p>
-            <p className="mt-4 font-display text-2xl leading-[1.3] text-ink md:text-3xl text-balance">
+            <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">Details</p>
+            <p className="mt-4 font-display text-xl font-semibold leading-snug text-[#eaecef] md:text-2xl text-balance">
               {project.description}
             </p>
 
             <div className="mt-12 grid grid-cols-3 gap-6 border-t border-border pt-8">
               {project.metrics.map((m) => (
                 <div key={m.label}>
-                  <p className="font-display text-3xl text-primary md:text-5xl">{m.value}</p>
-                  <p className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">
+                  <p className="font-numeric text-2xl font-semibold text-primary md:text-4xl">{m.value}</p>
+                  <p className="mt-1 text-xs font-medium uppercase tracking-wider text-muted-foreground">
                     {m.label}
                   </p>
                 </div>
@@ -134,26 +138,23 @@ function ProjectDetail() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-background py-24 md:py-32">
+      <section className="border-t border-border bg-background py-20 md:py-20">
         <div className="container-editorial text-center">
-          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Like what you see?</p>
-          <h2 className="mt-4 font-display text-5xl text-ink md:text-7xl text-balance">
-            Need something <em className="italic text-primary">similar?</em>
+          <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">
+            Like what you see?
+          </p>
+          <h2 className="mt-4 font-display text-4xl font-bold tracking-tight text-white md:text-5xl text-balance">
+            Need something <span className="text-primary">similar?</span>
           </h2>
-          <Link
-            to="/contact"
-            className="cta-energy mt-10 inline-flex items-center gap-3 px-8 py-4 font-display text-sm tracking-wide transition-base"
-          >
+          <Link to="/contact" className="cta-energy mt-10 inline-flex items-center gap-3 px-8 py-3 text-sm font-semibold">
             Request a quote for {project.name} →
           </Link>
         </div>
       </section>
 
-      {/* MORE WORK */}
-      <section className="bg-cream py-24">
+      <section className="border-t border-border bg-card py-20">
         <div className="container-editorial">
-          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">More work</p>
+          <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">More work</p>
           <div className="mt-8 grid gap-8 md:grid-cols-3">
             {others.map((p) => (
               <Link
@@ -162,18 +163,18 @@ function ProjectDetail() {
                 params={{ slug: p.slug }}
                 className="group micro-card block"
               >
-                <div className="aspect-[4/3] overflow-hidden rounded-2xl">
+                <div className="aspect-[4/3] overflow-hidden rounded-xl border border-border">
                   <img
                     src={p.images[0]}
                     alt={p.name}
                     width={1280}
                     height={960}
                     loading="lazy"
-                    className="h-full w-full object-cover transition-base duration-700 group-hover:scale-[1.04]"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                   />
                 </div>
-                <p className="mt-3 font-display text-xl text-ink">{p.name}</p>
-                <p className="text-xs uppercase tracking-wider text-muted-foreground">{p.category}</p>
+                <p className="mt-3 font-display text-lg font-semibold text-white">{p.name}</p>
+                <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{p.category}</p>
               </Link>
             ))}
           </div>

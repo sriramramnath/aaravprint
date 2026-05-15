@@ -44,7 +44,7 @@ function DefaultErrorComponent({ error, reset }: { error: Error; reset: () => vo
           </button>
           <a
             href="/"
-            className="micro-lift inline-flex items-center justify-center rounded-[18px] border border-white/55 bg-[rgb(255,255,255/0.55)] px-5 py-2.5 text-sm font-medium text-foreground backdrop-blur-md transition-colors hover:bg-[rgb(255,255,255/0.72)]"
+            className="btn-secondary-dark inline-flex min-h-10 items-center justify-center px-5 py-2.5 text-sm font-semibold text-[#eaecef]"
           >
             Go home
           </a>

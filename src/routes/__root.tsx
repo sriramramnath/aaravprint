@@ -11,8 +11,8 @@ function NotFoundComponent() {
   return (
     <div className="flex min-h-0 w-full flex-1 flex-col items-center justify-center px-4 py-24">
       <div className="max-w-md text-center">
-        <p className="font-display text-[10rem] leading-none text-ink">404</p>
-        <h2 className="mt-2 font-display text-2xl text-ink">Page not found</h2>
+        <p className="font-display text-[10rem] leading-none font-bold text-primary opacity-90">404</p>
+        <h2 className="mt-2 font-display text-2xl font-semibold text-white">Page not found</h2>
         <p className="mt-3 text-sm text-muted-foreground">
           The page you want is not here — try home or our work.
         </p>

@@ -33,17 +33,17 @@ export function QuoteDialog({ project, trigger }: Props) {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
-      <DialogContent className="max-w-xl border-border bg-card p-0">
-        <div className="bg-ink p-8 text-ink-foreground">
-          <p className="text-xs uppercase tracking-[0.3em] text-highlight">Request a quote</p>
+      <DialogContent className="max-w-xl border-[#eaecef] bg-[#ffffff] p-0 text-[#181a20]">
+        <div className="border-b border-[#eaecef] bg-[#fafafa] p-8">
+          <p className="text-xs font-medium uppercase tracking-[0.28em] text-primary">Request a quote</p>
           <DialogHeader className="mt-3 space-y-1 text-left">
-            <DialogTitle className="font-display text-3xl text-ink-foreground">
+            <DialogTitle className="font-display text-2xl font-bold text-[#181a20]">
               {project.name}
             </DialogTitle>
-            <DialogDescription className="text-ink-foreground/70">
+            <DialogDescription className="text-[#707a8a]">
               Jobs in this range often start around{" "}
-              <span className="text-highlight">{formatInr(project.startingPrice)}</span>. Tell us
-              size, place of install, and timeline — we will reply with a clear estimate.
+              <span className="font-numeric font-semibold text-primary">{formatInr(project.startingPrice)}</span>. Tell
+              us size, place of install, and timeline — we will reply with a clear estimate.
             </DialogDescription>
           </DialogHeader>
         </div>
@@ -69,6 +69,7 @@ export function QuoteDialog({ project, trigger }: Props) {
               id="q-budget"
               type="text"
               defaultValue={`${formatInr(project.startingPrice)}+`}
+              className="font-numeric"
             />
           </div>
           <div className="space-y-1.5">
@@ -80,10 +81,7 @@ export function QuoteDialog({ project, trigger }: Props) {
               placeholder="A few sentences about goals, timeline, and audience."
             />
           </div>
-          <button
-            type="submit"
-            className="cta-energy w-full py-3.5 text-sm transition-base"
-          >
+          <button type="submit" className="cta-energy h-11 w-full text-sm font-semibold">
             Send quote request →
           </button>
         </form>

@@ -34,10 +34,10 @@ const formSubmitUrl = `https://formsubmit.co/ajax/${encodeURIComponent(companyIn
 const inputTouchClass = "h-11 min-h-11 text-base sm:text-sm [touch-action:manipulation]";
 
 const chipClass =
-  "min-h-11 min-w-0 max-w-full touch-manipulation [touch-action:manipulation] rounded-full px-3 py-2.5 text-left text-[13px] leading-snug sm:py-2 sm:text-sm active:scale-[0.99] sm:max-w-none";
+  "min-h-11 min-w-0 max-w-full touch-manipulation [touch-action:manipulation] rounded-md px-3 py-2.5 text-left text-[13px] leading-snug sm:py-2 sm:text-sm active:opacity-90 sm:max-w-none";
 
 const budgetClass =
-  "min-h-11 min-w-0 flex-1 touch-manipulation rounded-full border px-3 py-2.5 text-center text-sm active:scale-[0.99] sm:flex-none sm:px-4";
+  "min-h-11 min-w-0 flex-1 touch-manipulation rounded-md border px-3 py-2.5 text-center text-sm active:opacity-90 sm:flex-none sm:px-4";
 
 function ContactPage() {
   const [selectedProducts, setSelectedProducts] = useState<Set<string>>(() => new Set());
@@ -133,11 +133,11 @@ function ContactPage() {
   };
 
   return (
-    <div className="bg-background">
+    <div className="min-h-full bg-background pb-16 text-foreground">
       <section className="container-editorial py-10 sm:py-16 md:py-24">
-        <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Contact</p>
-        <h1 className="mt-3 max-w-5xl font-display text-[clamp(2.25rem,10vw,7.5rem)] leading-[0.95] text-ink text-balance sm:mt-4">
-          Tell us what you <em className="italic text-primary">need printed</em>.
+        <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">Contact</p>
+        <h1 className="mt-3 max-w-5xl font-display text-[clamp(2.25rem,7vw,3rem)] font-bold leading-[1.08] tracking-tight text-white text-balance sm:mt-4">
+          Tell us what you <span className="text-primary">need printed</span>.
         </h1>
         <p className="mt-3 text-pretty text-muted-foreground sm:mt-4 sm:text-lg">
           {companyInfo.tagline}
@@ -152,37 +152,36 @@ function ContactPage() {
         <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-16">
           <aside className="order-1 space-y-8 md:order-2 md:col-span-5 md:space-y-10">
             <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Email</p>
+              <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">Email</p>
               <a
                 href={`mailto:${companyInfo.email}`}
-                className="micro-link mt-2 block min-h-11 break-all font-display text-lg leading-tight text-ink underline-offset-4 sm:mt-3 sm:text-2xl md:text-3xl"
+                className="micro-link mt-2 block min-h-11 break-all font-display text-lg leading-tight sm:mt-3 sm:text-2xl md:text-3xl"
               >
                 {companyInfo.email}
               </a>
             </div>
 
             <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+              <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">
                 Company fabrication
               </p>
-              <p className="mt-2 font-display text-base leading-relaxed text-ink sm:mt-3 sm:text-lg">
+              <p className="mt-2 font-display text-base leading-relaxed text-foreground sm:mt-3 sm:text-lg">
                 {companyInfo.locations[0]?.address}
               </p>
-              <p className="mt-3 text-xs uppercase tracking-[0.3em] text-muted-foreground sm:mt-4">
+              <p className="mt-3 text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground sm:mt-4">
                 {companyInfo.locations[1]?.label}
               </p>
-              <p className="mt-1 font-display text-base leading-relaxed text-ink sm:mt-2 sm:text-lg">
+              <p className="mt-1 font-display text-base leading-relaxed text-foreground sm:mt-2 sm:text-lg">
                 {companyInfo.locations[1]?.address}
               </p>
             </div>
 
-            <div className="micro-card rounded-2xl bg-ink p-6 text-ink-foreground sm:rounded-3xl sm:p-8">
-              <p className="text-xs uppercase tracking-[0.3em] text-highlight">Rush jobs</p>
-              <p className="mt-2 font-display text-xl sm:mt-3 sm:text-2xl">
-                Tell us your <span className="italic text-highlight">deadline</span> in the first
-                line.
+            <div className="rounded-xl border border-border bg-[#2b3139] p-6 text-foreground sm:p-8">
+              <p className="text-xs font-medium uppercase tracking-[0.28em] text-primary">Rush jobs</p>
+              <p className="mt-2 font-display text-xl font-semibold leading-snug text-white sm:text-2xl">
+                Tell us your <span className="text-primary">deadline</span> in the first line.
               </p>
-              <p className="mt-2 text-sm text-ink-foreground/70 sm:mt-3">
+              <p className="mt-2 text-sm text-muted-foreground sm:mt-3">
                 We will say honestly if we can meet it or suggest a realistic date.
               </p>
             </div>
@@ -191,7 +190,7 @@ function ContactPage() {
           <form
             id="contact-form"
             onSubmit={handleSubmit}
-            className="micro-card order-2 space-y-6 rounded-2xl bg-card p-5 shadow-soft sm:space-y-8 sm:rounded-3xl sm:p-8 md:order-1 md:col-span-7 md:p-12"
+            className="order-2 space-y-6 rounded-xl border border-border bg-card p-5 sm:space-y-8 sm:p-8 md:order-1 md:col-span-7 md:p-10"
           >
             <input type="hidden" name="budget" value={budget} />
             <input type="hidden" name="services" value={Array.from(selectedProducts).join("\n")} />
@@ -254,7 +253,7 @@ function ContactPage() {
               <p className="text-xs text-muted-foreground [text-wrap:pretty]">
                 Select all that apply. Chosen lines stay at the top; tap again to deselect.
               </p>
-              <div className="max-h-[min(60dvh,22rem)] overflow-y-auto overscroll-contain rounded-2xl border border-border/80 bg-muted/20 p-3 [-webkit-overflow-scrolling:touch] sm:max-h-[min(50vh,28rem)]">
+              <div className="max-h-[min(60dvh,22rem)] overflow-y-auto overscroll-contain rounded-xl border border-border bg-[#0b0e11] p-3 [-webkit-overflow-scrolling:touch] sm:max-h-[min(50vh,28rem)]">
                 <div className="space-y-4">
                   <div>
                     <p className="mb-2 text-[11px] font-medium uppercase tracking-wider text-foreground">
@@ -271,7 +270,7 @@ function ContactPage() {
                             type="button"
                             key={`sel-${s}`}
                             onClick={() => toggleProduct(s)}
-                            className={`micro-lift ${chipClass} rounded-full border border-border bg-gradient-to-br from-[#FFD60A] to-[#FFB703] font-semibold text-[#1A1A1A] shadow-[0_8px_20px_rgba(255,214,10,0.28)] hover:brightness-105 sm:inline-flex sm:w-auto`}
+                            className={`${chipClass} border-0 bg-primary font-semibold text-primary-foreground hover:bg-[#f0b90b] sm:inline-flex sm:w-auto`}
                           >
                             {s}
                           </button>
@@ -290,7 +289,7 @@ function ContactPage() {
                           type="button"
                           key={s}
                           onClick={() => toggleProduct(s)}
-                          className={`micro-lift ${chipClass} border border-white/55 bg-[rgb(255,255,255/0.5)] backdrop-blur-sm hover:border-muted-foreground/35 hover:text-foreground sm:inline-flex sm:w-auto`}
+                            className={`${chipClass} border border-border bg-[#1e2329] text-foreground hover:border-[#3a4149] hover:bg-[#2b3139] sm:inline-flex sm:w-auto`}
                         >
                           {s}
                         </button>
@@ -311,8 +310,8 @@ function ContactPage() {
                     onClick={() => setBudget(b)}
                     className={
                       budget === b
-                        ? `micro-lift ${budgetClass} border-highlight bg-highlight text-highlight-foreground`
-                        : `micro-lift ${budgetClass} border-border bg-transparent text-muted-foreground hover:border-muted-foreground/35 hover:text-foreground`
+                        ? `micro-lift ${budgetClass} border-primary bg-primary text-primary-foreground`
+                        : `micro-lift ${budgetClass} border-border bg-transparent text-muted-foreground hover:border-muted-foreground/50 hover:text-foreground`
                     }
                   >
                     {b}

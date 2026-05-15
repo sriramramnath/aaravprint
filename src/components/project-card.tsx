@@ -20,14 +20,12 @@ import { ProjectCarousel } from "@/components/project-carousel";
 
 type Props = {
   project: Project;
-  index: number;
 };
 
 const CARD_IMAGE_ROTATION_MS = 2000;
 const CARD_SLIDE_MS = 580;
 
-export function ProjectCard({ project, index }: Props) {
-  const offset = index % 2 === 0 ? "md:translate-y-0" : "md:translate-y-12";
+export function ProjectCard({ project }: Props) {
   const frames = useMemo(() => Array.from(new Set(project.images)), [project.images]);
   const slides = useMemo(() => {
     if (frames.length > 0) return frames;
@@ -78,10 +76,10 @@ export function ProjectCard({ project, index }: Props) {
   const slideTranslatePct = slotCount > 0 ? (100 * slideIndex) / slotCount : 0;
 
   return (
-    <article className={`group min-w-0 max-w-full ${offset}`}>
-      <div className="micro-card block min-w-0 overflow-hidden rounded-[28px] border border-white/50 bg-card/90 backdrop-blur-[14px] shadow-[0_10px_40px_rgba(0,0,0,0.08)] transition-base hover:border-white/65 hover:shadow-[0_10px_40px_rgba(0,0,0,0.1)]">
+    <article className="group flex min-w-0 max-w-full flex-col">
+      <div className="micro-card block min-w-0 flex-1 overflow-hidden rounded-xl border border-border bg-card transition-base hover:border-[#3a4149]">
         <div
-          className="relative aspect-[4/3] min-w-0 overflow-hidden overflow-x-clip rounded-b-none bg-[linear-gradient(180deg,rgb(255,251,234/0.95),rgb(255,255,255/0.88))]"
+          className="relative aspect-[4/3] min-w-0 overflow-hidden overflow-x-clip rounded-b-none bg-muted/25"
           onMouseEnter={() => {
             if (typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches) {
               pauseRotation.current = true;
@@ -115,7 +113,7 @@ export function ProjectCard({ project, index }: Props) {
                 return (
                   <div
                     key={`${project.slug}-${i}-${src}`}
-                    className="relative flex h-full min-w-0 shrink-0 items-center justify-center"
+                    className="relative h-full min-w-0 shrink-0 overflow-hidden"
                     style={{ width: `${100 / slotCount}%` }}
                     aria-hidden={isClone ? true : undefined}
                   >
@@ -125,14 +123,14 @@ export function ProjectCard({ project, index }: Props) {
                       width={1280}
                       height={960}
                       loading={i === 0 ? "eager" : "lazy"}
-                      className="h-full w-full min-w-0 max-w-full object-contain p-2 transition-transform duration-700 ease-out motion-reduce:transition-none group-hover:scale-[1.02]"
+                      className="h-full w-full min-w-0 max-w-full object-cover object-center transition-transform duration-700 ease-out motion-reduce:transition-none group-hover:scale-[1.02]"
                     />
                   </div>
                 );
               })}
             </div>
           ) : null}
-          <div className="absolute left-4 top-4 z-10 rounded-full border border-white/55 px-3 py-1 font-display text-[11px] font-semibold uppercase tracking-[0.12em] text-foreground glass-panel backdrop-blur-md">
+          <div className="absolute left-4 top-4 z-10 rounded-md border border-border bg-[#2b3139] px-3 py-1 font-display text-[11px] font-semibold uppercase tracking-[0.12em] text-[#eaecef]">
             {project.category}
           </div>
           <Dialog>
@@ -140,26 +138,26 @@ export function ProjectCard({ project, index }: Props) {
               <Button
                 type="button"
                 variant="default"
-                className="micro-lift absolute bottom-4 right-4 z-10 rounded-[14px] border border-[rgb(255,214,10/0.45)] px-5 text-xs font-semibold uppercase tracking-wider shadow-[0_8px_24px_rgba(255,214,10,0.25)]"
+                className="absolute bottom-4 right-4 z-10 px-5 text-xs font-semibold uppercase tracking-wider"
               >
                 View
               </Button>
             </DialogTrigger>
-            <DialogContent className="w-[98vw] max-w-6xl overflow-hidden rounded-[28px] border border-white/45 bg-[rgb(255,255,255/0.92)] p-3 shadow-[0_20px_56px_rgba(0,0,0,0.1)] backdrop-blur-xl sm:w-[95vw] sm:p-6 lg:w-[92vw]">
+            <DialogContent className="w-[98vw] max-w-6xl overflow-hidden rounded-xl border border-[#eaecef] bg-[#ffffff] p-3 sm:w-[95vw] sm:p-6 lg:w-[92vw]">
               <DialogHeader className="px-1 pt-1 text-center sm:px-0 sm:pt-0 sm:text-center">
-                <DialogTitle className="mx-auto w-full px-10 text-center font-display text-base leading-snug text-ink sm:px-12 sm:text-2xl">
+                <DialogTitle className="mx-auto w-full px-10 text-center font-display text-base font-semibold leading-snug text-[#181a20] sm:px-12 sm:text-2xl">
                   {project.name}
                 </DialogTitle>
               </DialogHeader>
-              <ProjectCarousel images={frames} alt={project.name} />
+              <ProjectCarousel variant="light" images={frames} alt={project.name} />
             </DialogContent>
           </Dialog>
         </div>
 
         <div className="space-y-3 p-6">
           <div className="flex items-baseline justify-between gap-4">
-            <h3 className="font-display text-2xl text-ink">
-              <Link to="/work/$slug" params={{ slug: project.slug }} className="hover:text-primary">
+            <h3 className="font-display text-xl font-semibold text-white md:text-2xl">
+              <Link to="/work/$slug" params={{ slug: project.slug }} className="transition-colors hover:text-primary">
                 {project.name}
               </Link>
             </h3>
@@ -171,7 +169,7 @@ export function ProjectCard({ project, index }: Props) {
       <div className="mt-4 flex justify-end px-1">
         <Link
           to="/contact"
-          className="micro-link text-xs font-medium uppercase tracking-wider text-ink underline-offset-4 hover:text-primary"
+          className="micro-link text-xs font-medium uppercase tracking-wider hover:text-primary"
         >
           Get a quote →
         </Link>

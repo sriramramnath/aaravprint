@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import {
   Carousel,
@@ -10,9 +11,11 @@ import {
 type Props = {
   images: string[];
   alt: string;
+  /** Use on light surfaces (e.g. modal) so chrome and labels read correctly. */
+  variant?: "dark" | "light";
 };
 
-export function ProjectCarousel({ images, alt }: Props) {
+export function ProjectCarousel({ images, alt, variant = "dark" }: Props) {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const showArrows = images.length > 1;
@@ -27,19 +30,22 @@ export function ProjectCarousel({ images, alt }: Props) {
     <div className="space-y-3 sm:space-y-4">
       <Carousel
         setApi={setApi}
-        className="overflow-hidden rounded-2xl border border-border bg-ink/95 p-1.5 sm:rounded-3xl sm:p-0"
+        className={cn(
+          "overflow-hidden rounded-xl border p-0",
+          variant === "light" ? "border-[#eaecef] bg-[#fafafa]" : "border-border bg-card",
+        )}
       >
         <CarouselContent className="ml-0">
           {images.map((src, i) => (
             <CarouselItem key={src} className="pl-0">
-              <div className="relative flex h-[clamp(16rem,58dvh,34rem)] w-full items-center justify-center overflow-hidden rounded-xl bg-ink sm:h-[clamp(22rem,65vh,44rem)] sm:rounded-2xl">
+              <div className="relative h-[clamp(16rem,58dvh,34rem)] w-full overflow-hidden rounded-lg sm:h-[clamp(22rem,65vh,44rem)]">
                 <img
                   src={src}
                   alt={`${alt} — image ${i + 1}`}
                   width={1280}
                   height={800}
                   loading={i === 0 ? "eager" : "lazy"}
-                  className="block h-full w-full max-w-full object-contain object-center p-1 sm:p-3"
+                  className="block h-full w-full max-w-full object-cover object-center"
                 />
               </div>
             </CarouselItem>
@@ -52,7 +58,12 @@ export function ProjectCarousel({ images, alt }: Props) {
               aria-label="Previous slide"
               onClick={() => api?.scrollPrev()}
               disabled={current === 0}
-              className="absolute left-3 top-1/2 z-40 inline-flex size-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 glass-panel text-foreground shadow-lg transition-colors hover:border-secondary hover:bg-[rgba(255,122,84,0.14)] hover:text-secondary disabled:opacity-45 sm:left-4 sm:size-12"
+              className={cn(
+                "absolute left-3 top-1/2 z-40 inline-flex size-10 -translate-y-1/2 items-center justify-center rounded-md border transition-colors disabled:opacity-45 sm:left-4 sm:size-11",
+                variant === "light"
+                  ? "border-[#eaecef] bg-[#ffffff] text-[#181a20] hover:bg-[#fafafa]"
+                  : "border-border bg-[#2b3139] text-[#eaecef] hover:bg-[#363e47]",
+              )}
             >
               <ArrowLeft className="size-4 sm:size-5" />
             </button>
@@ -61,7 +72,12 @@ export function ProjectCarousel({ images, alt }: Props) {
               aria-label="Next slide"
               onClick={() => api?.scrollNext()}
               disabled={current >= images.length - 1}
-              className="absolute right-3 top-1/2 z-40 inline-flex size-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 glass-panel text-foreground shadow-lg transition-colors hover:border-secondary hover:bg-[rgba(255,122,84,0.14)] hover:text-secondary disabled:opacity-45 sm:right-4 sm:size-12"
+              className={cn(
+                "absolute right-3 top-1/2 z-40 inline-flex size-10 -translate-y-1/2 items-center justify-center rounded-md border transition-colors disabled:opacity-45 sm:right-4 sm:size-11",
+                variant === "light"
+                  ? "border-[#eaecef] bg-[#ffffff] text-[#181a20] hover:bg-[#fafafa]"
+                  : "border-border bg-[#2b3139] text-[#eaecef] hover:bg-[#363e47]",
+              )}
             >
               <ArrowRight className="size-4 sm:size-5" />
             </button>
@@ -70,10 +86,22 @@ export function ProjectCarousel({ images, alt }: Props) {
       </Carousel>
 
       <div className="flex items-center justify-start gap-3 px-1">
-        <p className="font-display text-xs tabular-nums text-muted-foreground sm:text-sm">
-          <span className="text-foreground">{String(current + 1).padStart(2, "0")}</span>
-          <span className="mx-2">/</span>
-          {String(images.length).padStart(2, "0")}
+        <p
+          className={cn(
+            "font-numeric text-xs sm:text-sm",
+            variant === "light" ? "text-[#707a8a]" : "text-muted-foreground",
+          )}
+        >
+          <span
+            className={cn(
+              "font-medium",
+              variant === "light" ? "text-[#181a20]" : "text-foreground",
+            )}
+          >
+            {String(current + 1).padStart(2, "0")}
+          </span>
+          <span className="mx-2 font-normal">/</span>
+          <span>{String(images.length).padStart(2, "0")}</span>
         </p>
       </div>
     </div>

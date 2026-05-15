@@ -43,17 +43,13 @@ const principles = [
 function StudioPage() {
   return (
     <div className="bg-background">
-      <section className="container-editorial py-16 md:py-24">
-        <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">About</p>
-        <h1 className="mt-4 max-w-5xl font-display text-[clamp(3rem,8vw,7.5rem)] leading-[0.92] text-ink text-balance">
-          <em className="italic text-primary">Aarav Signboard</em> is your
-          <span className="relative inline-block">
-            <span className="absolute -bottom-1 left-0 h-3 w-full -skew-x-6 bg-highlight -z-0" />
-            <span className="relative px-2"> signage </span>
-          </span>
-          and print partner.
+      <section className="container-editorial py-20 md:py-20">
+        <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">About</p>
+        <h1 className="mt-4 max-w-5xl text-balance font-display text-[clamp(2.25rem,8vw,3.25rem)] font-bold leading-[1.08] tracking-tight text-white md:text-[clamp(2.5rem,5vw,2.875rem)]">
+          <span className="text-primary">Aarav Signboard</span> is your{" "}
+          <span className="border-b-[3px] border-primary pb-0.5">signage</span> and print partner.
         </h1>
-        <p className="mt-4 max-w-2xl text-base text-muted-foreground md:text-lg">
+        <p className="mt-4 max-w-2xl text-muted-foreground md:text-base">
           {companyInfo.tagline}
         </p>
         <p className="mt-6 max-w-2xl text-muted-foreground md:text-lg">
@@ -62,53 +58,53 @@ function StudioPage() {
         </p>
       </section>
 
-      <section className="bg-ink py-24 text-ink-foreground md:py-32">
+      <section className="border-t border-border bg-card py-20 text-card-foreground md:py-20">
         <div className="container-editorial grid gap-16 md:grid-cols-12">
           <div className="md:col-span-4">
-            <p className="text-xs uppercase tracking-[0.3em] text-highlight">Principles</p>
-            <h2 className="mt-4 font-display text-4xl leading-[1] md:text-5xl">
+            <p className="text-xs font-medium uppercase tracking-[0.28em] text-primary">Principles</p>
+            <h2 className="mt-4 font-display text-3xl font-bold leading-[1.1] tracking-tight text-white md:text-4xl">
               How we
               <br />
-              <span className="italic text-highlight">work.</span>
+              <span className="text-primary">work.</span>
             </h2>
           </div>
           <ul className="grid gap-x-12 gap-y-10 md:col-span-8 md:grid-cols-2">
             {principles.map((p) => (
-              <li key={p.n} className="micro-lift border-t border-ink-foreground/15 pt-5">
-                <p className="font-display text-sm tabular-nums text-highlight">{p.n}</p>
-                <h3 className="mt-2 font-display text-2xl">{p.t}</h3>
-                <p className="mt-2 text-sm text-ink-foreground/60">{p.d}</p>
+              <li key={p.n} className="border-t border-border pt-5">
+                <p className="font-numeric text-sm font-medium text-primary">{p.n}</p>
+                <h3 className="mt-2 font-display text-xl font-semibold text-white">{p.t}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{p.d}</p>
               </li>
             ))}
           </ul>
         </div>
       </section>
 
-      <section className="container-editorial py-24 md:py-32">
+      <section className="container-editorial py-20 md:py-20">
         <div>
-          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Capabilities</p>
-          <h2 className="mt-4 font-display text-5xl text-ink md:text-6xl">
-            Every <em className="italic text-primary">product</em> we offer.
+          <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">Capabilities</p>
+          <h2 className="mt-4 font-display text-4xl font-bold tracking-tight text-white md:text-5xl">
+            Every <span className="text-primary">product</span> we offer.
           </h2>
         </div>
-        <ul className="mt-14 space-y-0 divide-y divide-ink/10">
+        <ul className="mt-14 space-y-0 divide-y divide-border">
           {productServiceLabels.map((line, i) => (
             <li
               key={line}
-              className="group micro-lift grid grid-cols-[auto_1fr] items-baseline gap-6 py-5 transition-base hover:bg-cream"
+              className="group grid grid-cols-[auto_1fr] items-baseline gap-6 py-5 transition-colors hover:bg-card"
             >
-              <span className="font-display text-sm tabular-nums text-muted-foreground">
+              <span className="font-numeric text-sm font-medium text-muted-foreground">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <span className="font-display text-xl text-ink md:text-2xl">{line}</span>
+              <span className="font-display text-lg font-semibold text-foreground md:text-xl">{line}</span>
             </li>
           ))}
         </ul>
       </section>
 
-      <section className="bg-cream py-24">
+      <section className="border-t border-border bg-card py-20">
         <div className="container-editorial text-center">
-          <h2 className="mx-auto max-w-3xl font-display text-4xl text-ink md:text-6xl text-balance">
+          <h2 className="mx-auto max-w-3xl font-display text-3xl font-bold tracking-tight text-white md:text-4xl text-balance">
             Ready to brief a job?
           </h2>
           <Link

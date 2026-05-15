@@ -1,6 +1,7 @@
+import type { ComponentProps } from "react";
 import { Toaster as Sonner } from "sonner";
 
-type ToasterProps = React.ComponentProps<typeof Sonner>;
+type ToasterProps = ComponentProps<typeof Sonner>;
 
 const Toaster = ({ ...props }: ToasterProps) => {
   return (
@@ -9,11 +10,12 @@ const Toaster = ({ ...props }: ToasterProps) => {
       toastOptions={{
         classNames: {
           toast:
-            "group toast group-[.toaster]:rounded-[18px] group-[.toaster]:border group-[.toaster]:border-white/45 group-[.toaster]:bg-[rgb(255,255,255/0.9)] group-[.toaster]:backdrop-blur-md group-[.toaster]:text-foreground group-[.toaster]:shadow-[0_10px_40px_rgba(0,0,0,0.08)]",
-          description: "group-[.toast]:text-muted-foreground",
+            "group toast group-[.toaster]:rounded-lg group-[.toaster]:border group-[.toaster]:border-[#2b3139] group-[.toaster]:bg-[#1e2329] group-[.toaster]:text-[#eaecef] group-[.toaster]:shadow-none",
+          description: "group-[.toast]:text-[#707a8a]",
           actionButton:
-            "group-[.toast]:rounded-[14px] group-[.toast]:bg-gradient-to-br group-[.toast]:from-[#FFD60A] group-[.toast]:to-[#FFB703] group-[.toast]:font-semibold group-[.toast]:text-[#1A1A1A]",
-          cancelButton: "group-[.toast]:bg-muted group-[.toast]:text-muted-foreground",
+            "group-[.toast]:rounded-md group-[.toast]:bg-[#fcd535] group-[.toast]:font-semibold group-[.toast]:text-[#181a20] hover:group-[.toast]:bg-[#f0b90b]",
+          cancelButton:
+            "group-[.toast]:rounded-md group-[.toast]:border group-[.toast]:border-[#2b3139] group-[.toast]:bg-transparent group-[.toast]:text-[#eaecef]",
         },
       }}
       {...props}

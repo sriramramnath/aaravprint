@@ -50,7 +50,7 @@ function Index() {
   return (
     <div>
       {/* HERO */}
-      <section className="relative isolate overflow-hidden bg-background pb-16 pt-12 md:pb-20 md:pt-14">
+      <section className="relative isolate overflow-hidden bg-background pb-16 pt-10 md:pb-20 md:pt-14">
         <img
           aria-hidden
           src={activeImage}
@@ -62,35 +62,35 @@ function Index() {
         <div className="container-editorial">
           <div className="relative flex min-h-[31rem] items-center justify-center py-6 md:min-h-[40rem] md:py-10">
             <div className="animate-float-up relative z-20 flex max-w-4xl flex-col items-center px-1 pt-2 text-center md:pt-4">
-              <div className="hero-headline-glow space-y-1 font-display text-[clamp(3rem,10vw,7.5rem)] leading-[0.9] tracking-[-0.045em] text-white">
+              <div className="hero-headline-glow space-y-1 font-display text-[clamp(2.25rem,10vw,4rem)] font-bold leading-[1.08] tracking-[-0.03em] text-white md:text-[clamp(2.75rem,8vw,4rem)]">
                 <div className="relative inline-block">
                   <p>
-                    <span className="italic text-primary">Clear</span>{" "}
+                    <span className="text-primary">Clear</span>{" "}
                     <span className="text-white">signs.</span>
                   </p>
                 </div>
                 <div className="relative inline-block pt-1.5">
                   <p>
-                    <span className="italic text-primary">Quality</span>{" "}
+                    <span className="text-primary">Quality</span>{" "}
                     <span className="text-white">prints.</span>
                   </p>
                 </div>
               </div>
 
-              <p className="hero-tagline-shadow mt-8 max-w-2xl text-base leading-relaxed text-white/85 md:text-lg">
+              <p className="hero-tagline-shadow mt-8 max-w-2xl text-sm leading-relaxed text-[#eaecef] md:text-base">
                 Premium sign boards, print, and installation crafted for visibility that lasts.
               </p>
 
-                <div className="mt-6 flex flex-wrap items-center justify-center gap-4 md:mt-7">
+                <div className="mt-6 flex flex-wrap items-center justify-center gap-3 md:mt-7 md:gap-4">
                   <Link
                     to="/work"
-                    className="cta-energy inline-flex items-center gap-2 px-7 py-4 font-display text-base tracking-wide transition-base"
+                    className="cta-energy inline-flex min-h-10 items-center gap-2 px-6 py-2.5 font-display text-sm transition-base"
                   >
                     Start now →
                   </Link>
                   <Link
                     to="/contact"
-                    className="glass-panel glass-panel-interactive micro-lift inline-flex items-center gap-2 rounded-[18px] border border-white/45 px-7 py-4 font-display text-base font-semibold tracking-wide text-white transition-base"
+                    className="btn-secondary-dark inline-flex min-h-10 items-center gap-2 border border-[#2b3139] px-6 py-2.5 font-display text-sm transition-base"
                   >
                     Contact sales
                   </Link>
@@ -101,13 +101,13 @@ function Index() {
       </section>
 
       {/* FEATURED WORK */}
-      <section className="bg-background py-24 md:pb-28 md:pt-16">
+      <section className="border-t border-border bg-background py-20 md:py-20">
         <div className="container-editorial">
           <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
             <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Our work</p>
-              <h2 className="mt-4 font-display text-5xl leading-[0.95] text-ink md:text-7xl">
-                Featured <em className="italic text-primary">work</em>.
+              <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">Our work</p>
+              <h2 className="mt-4 font-display text-4xl font-bold leading-[1.05] tracking-tight text-white md:text-5xl lg:text-[3rem]">
+                Featured <span className="text-primary">work.</span>
               </h2>
             </div>
             <Link
@@ -118,9 +118,9 @@ function Index() {
             </Link>
           </div>
 
-          <div className="grid min-w-0 gap-x-8 gap-y-16 md:grid-cols-2">
-            {featured.map((p, i) => (
-              <ProjectCard key={p.slug} project={p} index={i} />
+          <div className="grid min-w-0 grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-14">
+            {featured.map((p) => (
+              <ProjectCard key={p.slug} project={p} />
             ))}
           </div>
           <div className="mt-14 flex justify-center">
@@ -135,17 +135,17 @@ function Index() {
       </section>
 
       {/* SERVICES STRIP */}
-      <section className="bg-ink py-24 text-ink-foreground md:py-32">
+      <section className="border-t border-border bg-card py-20 text-card-foreground md:py-20">
         <div className="container-editorial">
           <div className="grid gap-12 md:grid-cols-12">
             <div className="md:col-span-5">
-              <p className="text-xs uppercase tracking-[0.3em] text-highlight">What we do</p>
-              <h2 className="mt-4 font-display text-5xl leading-[0.95] md:text-6xl">
+              <p className="text-xs font-medium uppercase tracking-[0.28em] text-primary">What we do</p>
+              <h2 className="mt-4 font-display text-4xl font-bold leading-[1.05] tracking-tight text-white md:text-5xl">
                 Signage &amp; print
                 <br />
-                <span className="italic text-highlight">under one roof.</span>
+                <span className="text-primary">under one roof.</span>
               </h2>
-              <p className="mt-6 max-w-md text-ink-foreground/70">
+              <p className="mt-6 max-w-md text-muted-foreground">
                 We help shop owners, contractors, and event teams with material selection, printing,
                 fitting, and on-site installation when needed.
               </p>
@@ -173,10 +173,10 @@ function Index() {
                   d: "Roll-ups, backdrops, promo tables, and more.",
                 },
               ].map((s) => (
-                <li key={s.n} className="border-t border-ink-foreground/15 pt-5">
-                  <p className="font-display text-sm tabular-nums text-highlight">{s.n}</p>
-                  <h3 className="mt-2 font-display text-2xl text-ink-foreground">{s.t}</h3>
-                  <p className="mt-2 text-sm text-ink-foreground/60">{s.d}</p>
+                <li key={s.n} className="border-t border-border pt-5">
+                  <p className="font-numeric text-sm font-medium text-primary">{s.n}</p>
+                  <h3 className="mt-2 font-display text-xl font-semibold text-white">{s.t}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{s.d}</p>
                 </li>
               ))}
             </ul>
@@ -185,13 +185,13 @@ function Index() {
       </section>
 
       {/* TESTIMONIAL */}
-      <section className="bg-cream py-24 md:py-32">
+      <section className="border-t border-border bg-background py-20 md:py-20">
         <div className="container-editorial max-w-4xl text-center">
-          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Kind words</p>
-          <blockquote className="mt-8 font-display text-3xl leading-[1.15] text-ink md:text-5xl text-balance">
-            "Aarav Signboard turned our shopfront around in one week — LED board is bright, clean,
+          <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">Kind words</p>
+          <blockquote className="mt-8 font-display text-2xl font-semibold leading-[1.2] tracking-tight text-white md:text-4xl text-balance">
+            &ldquo;Aarav Signboard turned our shopfront around in one week — LED board is bright, clean,
             and the team handled
-            <em className="italic text-primary"> install without fuss.</em>"
+            <span className="text-primary"> install without fuss.</span>&rdquo;
           </blockquote>
           <p className="mt-10 text-sm text-muted-foreground">
             Local retail client - signage and print work
