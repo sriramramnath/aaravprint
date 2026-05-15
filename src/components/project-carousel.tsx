@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { type SyntheticEvent, useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import {
@@ -17,9 +17,12 @@ type Props = {
   title?: string;
 };
 
+type ImageOrientation = "landscape" | "portrait";
+
 export function ProjectCarousel({ images, alt, variant = "dark", title }: Props) {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
+  const [orientations, setOrientations] = useState<Record<string, ImageOrientation>>({});
   const showArrows = images.length > 1;
   const immersive = variant === "immersive";
   const showImmersiveBar =
@@ -30,6 +33,15 @@ export function ProjectCarousel({ images, alt, variant = "dark", title }: Props)
     setCurrent(api.selectedScrollSnap());
     api.on("select", () => setCurrent(api.selectedScrollSnap()));
   }, [api]);
+
+  const handleImageLoad = (src: string) => (event: SyntheticEvent<HTMLImageElement>) => {
+    const { naturalWidth, naturalHeight } = event.currentTarget;
+    const orientation: ImageOrientation = naturalWidth >= naturalHeight ? "landscape" : "portrait";
+    setOrientations((previous) => {
+      if (previous[src] === orientation) return previous;
+      return { ...previous, [src]: orientation };
+    });
+  };
 
   return (
     <div className={cn(!immersive && "space-y-3 sm:space-y-4")}>
@@ -49,7 +61,7 @@ export function ProjectCarousel({ images, alt, variant = "dark", title }: Props)
             <CarouselItem key={src} className="pl-0">
               <div
                 className={cn(
-                  "relative h-[clamp(16rem,58dvh,34rem)] w-full overflow-hidden sm:h-[clamp(22rem,65vh,44rem)]",
+                  "relative flex h-[clamp(16rem,58dvh,34rem)] w-full items-center justify-center overflow-hidden bg-black sm:h-[clamp(22rem,65vh,44rem)]",
                   immersive ? "rounded-none" : "rounded-lg",
                 )}
               >
@@ -59,7 +71,15 @@ export function ProjectCarousel({ images, alt, variant = "dark", title }: Props)
                   width={1280}
                   height={800}
                   loading={i === 0 ? "eager" : "lazy"}
-                  className="block h-full w-full max-w-full object-cover object-center"
+                  onLoad={handleImageLoad(src)}
+                  className={cn(
+                    "block max-w-full object-center",
+                    immersive
+                      ? orientations[src] === "portrait"
+                        ? "h-full w-auto object-contain"
+                        : "h-auto w-full max-h-full object-contain"
+                      : "h-full w-full object-cover",
+                  )}
                 />
               </div>
             </CarouselItem>
