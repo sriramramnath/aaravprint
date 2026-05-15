@@ -2,12 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState, type TransitionEvent
 import { Link } from "@tanstack/react-router";
 import type { Project } from "@/data/projects";
 import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { ProjectCarousel } from "@/components/project-carousel";
 
 type Props = {
@@ -132,7 +127,7 @@ export function ProjectCard({ project }: Props) {
                 View
               </Button>
             </DialogTrigger>
-            <DialogContent className="w-[98vw] max-w-6xl gap-0 overflow-visible border-0 bg-transparent p-3 shadow-none sm:w-[95vw] sm:p-6 lg:w-[92vw] [&>button]:text-white [&>button]:opacity-90 [&>button]:ring-offset-[#181a20] [&>button]:hover:bg-white/10 [&>button]:hover:opacity-100">
+            <DialogContent className="w-[98vw] max-w-6xl gap-0 overflow-visible border-0 bg-transparent p-0 shadow-none sm:w-[95vw] lg:w-[92vw] [&>button]:!right-8 [&>button]:!top-8 [&>button]:z-50 [&>button]:flex [&>button]:size-11 [&>button]:items-center [&>button]:justify-center [&>button]:rounded-full [&>button]:bg-black/50 [&>button]:text-white [&>button]:opacity-90 [&>button]:backdrop-blur-sm [&>button]:ring-offset-[#181a20] [&>button]:transition-colors [&>button]:hover:bg-black/70 [&>button]:hover:opacity-100 [&>button_svg]:h-6 [&>button_svg]:w-6">
               <DialogTitle className="sr-only">{project.name}</DialogTitle>
               <ProjectCarousel
                 variant="immersive"
