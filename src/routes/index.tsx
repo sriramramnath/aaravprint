@@ -55,6 +55,7 @@ function Index() {
           className="absolute inset-0 -z-30 h-full w-full object-cover"
         />
         <div aria-hidden className="bg-hero-veil absolute inset-0 -z-20" />
+        <div aria-hidden className="absolute inset-0 -z-20 bg-black/20" />
 
         <div className="container-editorial">
           <div className="relative flex min-h-[31rem] items-center justify-center py-6 md:min-h-[40rem] md:py-10">
