@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
-  DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
@@ -133,13 +132,14 @@ export function ProjectCard({ project }: Props) {
                 View
               </Button>
             </DialogTrigger>
-            <DialogContent className="w-[98vw] max-w-6xl overflow-hidden rounded-xl border border-[#eaecef] bg-[#ffffff] p-3 sm:w-[95vw] sm:p-6 lg:w-[92vw]">
-              <DialogHeader className="px-1 pt-1 text-center sm:px-0 sm:pt-0 sm:text-center">
-                <DialogTitle className="mx-auto w-full px-10 text-center font-display text-base font-semibold leading-snug text-[#181a20] sm:px-12 sm:text-2xl">
-                  {project.name}
-                </DialogTitle>
-              </DialogHeader>
-              <ProjectCarousel variant="light" images={frames} alt={project.name} />
+            <DialogContent className="w-[98vw] max-w-6xl gap-0 overflow-visible border-0 bg-transparent p-3 shadow-none sm:w-[95vw] sm:p-6 lg:w-[92vw] [&>button]:text-white [&>button]:opacity-90 [&>button]:ring-offset-[#181a20] [&>button]:hover:bg-white/10 [&>button]:hover:opacity-100">
+              <DialogTitle className="sr-only">{project.name}</DialogTitle>
+              <ProjectCarousel
+                variant="immersive"
+                title={project.name}
+                images={frames}
+                alt={project.name}
+              />
             </DialogContent>
           </Dialog>
         </div>
