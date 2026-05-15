@@ -118,7 +118,7 @@ export function SiteHeader() {
         <div className="relative z-10 ml-auto flex shrink-0 items-center gap-2">
           <Link
             to="/contact"
-            className="cta-energy hidden items-center gap-2 px-6 py-2.5 text-sm md:inline-flex"
+            className="cta-energy max-md:!hidden items-center gap-2 px-6 py-2.5 text-sm"
           >
             Get a quote
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
