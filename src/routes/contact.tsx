@@ -69,8 +69,7 @@ function ContactPage() {
 
     if (selectedProducts.size === 0) {
       toast.error("Select at least one product", {
-        description:
-          "Use the list below to choose what you need — selected items appear at the top.",
+        description: "Pick what you need from the list below. Selected items move to the top.",
       });
       return;
     }
@@ -124,7 +123,7 @@ function ContactPage() {
     } catch (err) {
       console.error(err);
       toast.error("Could not send the form", {
-        description: `Email us directly: ${companyInfo.email} — or try again in a moment.`,
+        description: `Email us directly: ${companyInfo.email} — or try again.`,
         duration: 8000,
       });
     } finally {
@@ -135,7 +134,9 @@ function ContactPage() {
   return (
     <div className="min-h-full bg-background pb-16 text-foreground">
       <section className="container-editorial py-10 sm:py-16 md:py-24">
-        <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">Contact</p>
+        <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">
+          Contact
+        </p>
         <h1 className="mt-3 max-w-5xl font-display text-[clamp(2.25rem,7vw,3rem)] font-bold leading-[1.08] tracking-tight text-white text-balance sm:mt-4">
           Tell us what you <span className="text-primary">need printed</span>.
         </h1>
@@ -143,8 +144,8 @@ function ContactPage() {
           {companyInfo.tagline}
         </p>
         <p className="mt-3 max-w-2xl text-pretty text-sm text-muted-foreground sm:mt-4 sm:text-base md:text-lg">
-          Rough size, where it will go, and when you need it help us quote quickly. Photos and
-          references are always welcome.
+          Tell us the rough size, where it will go, and when you need it. Photos and examples are
+          always welcome.
         </p>
       </section>
 
@@ -152,7 +153,9 @@ function ContactPage() {
         <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-16">
           <aside className="order-1 space-y-8 md:order-2 md:col-span-5 md:space-y-10">
             <div>
-              <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">Email</p>
+              <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">
+                Email
+              </p>
               <a
                 href={`mailto:${companyInfo.email}`}
                 className="micro-link mt-2 block min-h-11 break-all font-display text-lg leading-tight sm:mt-3 sm:text-2xl md:text-3xl"
@@ -177,12 +180,14 @@ function ContactPage() {
             </div>
 
             <div className="rounded-xl border border-border bg-[#2b3139] p-6 text-foreground sm:p-8">
-              <p className="text-xs font-medium uppercase tracking-[0.28em] text-primary">Rush jobs</p>
+              <p className="text-xs font-medium uppercase tracking-[0.28em] text-primary">
+                Rush jobs
+              </p>
               <p className="mt-2 font-display text-xl font-semibold leading-snug text-white sm:text-2xl">
                 Tell us your <span className="text-primary">deadline</span> in the first line.
               </p>
               <p className="mt-2 text-sm text-muted-foreground sm:mt-3">
-                We will say honestly if we can meet it or suggest a realistic date.
+                We will tell you honestly if we can do it or suggest a date that works.
               </p>
             </div>
           </aside>
@@ -251,7 +256,7 @@ function ContactPage() {
             <div className="space-y-2 sm:space-y-3">
               <Label>What do you need?</Label>
               <p className="text-xs text-muted-foreground [text-wrap:pretty]">
-                Select all that apply. Chosen lines stay at the top; tap again to deselect.
+                Pick all that apply. Selected items stay at the top; tap again to remove.
               </p>
               <div className="max-h-[min(60dvh,22rem)] overflow-y-auto overscroll-contain rounded-xl border border-border bg-[#0b0e11] p-3 [-webkit-overflow-scrolling:touch] sm:max-h-[min(50vh,28rem)]">
                 <div className="space-y-4">
@@ -289,7 +294,7 @@ function ContactPage() {
                           type="button"
                           key={s}
                           onClick={() => toggleProduct(s)}
-                            className={`${chipClass} border border-border bg-[#1e2329] text-foreground hover:border-[#3a4149] hover:bg-[#2b3139] sm:inline-flex sm:w-auto`}
+                          className={`${chipClass} border border-border bg-[#1e2329] text-foreground hover:border-[#3a4149] hover:bg-[#2b3139] sm:inline-flex sm:w-auto`}
                         >
                           {s}
                         </button>
@@ -333,12 +338,7 @@ function ContactPage() {
             </div>
 
             <p className="text-center text-xs text-muted-foreground [text-wrap:pretty] sm:text-left">
-              Submissions are sent to {companyInfo.email}
-              {". "}
-              <span className="text-muted-foreground/90">
-                If this is the first time, you may get one activation link from the form service —
-                after that, messages arrive in the inbox.
-              </span>
+              Submissions are sent to {companyInfo.email}.
             </p>
 
             <button

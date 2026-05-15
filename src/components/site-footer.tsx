@@ -17,9 +17,7 @@ export function SiteFooter() {
                 className="h-12 w-auto max-w-[200px] object-contain object-left"
                 decoding="async"
               />
-              <p className="font-display text-lg font-semibold text-white">
-                {companyInfo.name}
-              </p>
+              <p className="font-display text-lg font-semibold text-white">{companyInfo.name}</p>
               <p className="max-w-md text-sm leading-relaxed text-muted-foreground">
                 {companyInfo.tagline}
               </p>
@@ -43,7 +41,9 @@ export function SiteFooter() {
               className="cta-energy mt-8 inline-flex items-center gap-3 px-7 py-3.5 text-sm transition-base"
             >
               Start the conversation
-              <span className="text-lg" aria-hidden>→</span>
+              <span className="text-lg" aria-hidden>
+                →
+              </span>
             </Link>
           </div>
 
@@ -59,12 +59,18 @@ export function SiteFooter() {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/studio" className="text-foreground transition-colors hover:text-primary">
+                  <Link
+                    to="/studio"
+                    className="text-foreground transition-colors hover:text-primary"
+                  >
                     About
                   </Link>
                 </li>
                 <li>
-                  <Link to="/contact" className="text-foreground transition-colors hover:text-primary">
+                  <Link
+                    to="/contact"
+                    className="text-foreground transition-colors hover:text-primary"
+                  >
                     Contact
                   </Link>
                 </li>
@@ -84,7 +90,10 @@ export function SiteFooter() {
                   </a>
                 </li>
                 <li>
-                  <Link to="/contact" className="text-foreground transition-colors hover:text-primary">
+                  <Link
+                    to="/contact"
+                    className="text-foreground transition-colors hover:text-primary"
+                  >
                     Contact form
                   </Link>
                 </li>

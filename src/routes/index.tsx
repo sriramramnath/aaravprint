@@ -81,20 +81,20 @@ function Index() {
                 Premium sign boards, print, and installation crafted for visibility that lasts.
               </p>
 
-                <div className="mt-6 flex flex-wrap items-center justify-center gap-3 md:mt-7 md:gap-4">
-                  <Link
-                    to="/work"
-                    className="cta-energy inline-flex min-h-10 items-center gap-2 px-6 py-2.5 font-display text-sm transition-base"
-                  >
-                    Start now →
-                  </Link>
-                  <Link
-                    to="/contact"
-                    className="btn-secondary-dark inline-flex min-h-10 items-center gap-2 border border-[#2b3139] px-6 py-2.5 font-display text-sm transition-base"
-                  >
-                    Contact sales
-                  </Link>
-                </div>
+              <div className="mt-6 flex flex-wrap items-center justify-center gap-3 md:mt-7 md:gap-4">
+                <Link
+                  to="/work"
+                  className="cta-energy inline-flex min-h-10 items-center gap-2 px-6 py-2.5 font-display text-sm transition-base"
+                >
+                  Start now →
+                </Link>
+                <Link
+                  to="/contact"
+                  className="btn-secondary-dark inline-flex min-h-10 items-center gap-2 border border-[#2b3139] px-6 py-2.5 font-display text-sm transition-base"
+                >
+                  Contact sales
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -105,7 +105,9 @@ function Index() {
         <div className="container-editorial">
           <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
             <div>
-              <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">Our work</p>
+              <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">
+                Our work
+              </p>
               <h2 className="mt-4 font-display text-4xl font-bold leading-[1.05] tracking-tight text-white md:text-5xl lg:text-[3rem]">
                 Featured <span className="text-primary">work.</span>
               </h2>
@@ -139,15 +141,17 @@ function Index() {
         <div className="container-editorial">
           <div className="grid gap-12 md:grid-cols-12">
             <div className="md:col-span-5">
-              <p className="text-xs font-medium uppercase tracking-[0.28em] text-primary">What we do</p>
+              <p className="text-xs font-medium uppercase tracking-[0.28em] text-primary">
+                What we do
+              </p>
               <h2 className="mt-4 font-display text-4xl font-bold leading-[1.05] tracking-tight text-white md:text-5xl">
                 Signage &amp; print
                 <br />
                 <span className="text-primary">under one roof.</span>
               </h2>
               <p className="mt-6 max-w-md text-muted-foreground">
-                We help shop owners, contractors, and event teams with material selection, printing,
-                fitting, and on-site installation when needed.
+                We help shop owners, contractors, and event teams pick materials, print, fit, and
+                install boards on site.
               </p>
             </div>
             <ul className="grid gap-x-12 gap-y-10 md:col-span-7 md:grid-cols-2">
@@ -187,11 +191,13 @@ function Index() {
       {/* TESTIMONIAL */}
       <section className="border-t border-border bg-background py-20 md:py-20">
         <div className="container-editorial max-w-4xl text-center">
-          <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">Kind words</p>
+          <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">
+            What our clients say
+          </p>
           <blockquote className="mt-8 font-display text-2xl font-semibold leading-[1.2] tracking-tight text-white md:text-4xl text-balance">
-            &ldquo;Aarav Signboard turned our shopfront around in one week — LED board is bright, clean,
-            and the team handled
-            <span className="text-primary"> install without fuss.</span>&rdquo;
+            &ldquo;Aarav Signboard made our shop look great in one week &mdash; LED board is bright,
+            clean, and the team handled
+            <span className="text-primary"> install without any trouble.</span>&rdquo;
           </blockquote>
           <p className="mt-10 text-sm text-muted-foreground">
             Local retail client - signage and print work

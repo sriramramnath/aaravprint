@@ -62,7 +62,9 @@ export function SiteHeader() {
     <header
       className={cn(
         "sticky top-0 z-40 transition-base",
-        scrolled ? "border-b border-border bg-background" : "border-b border-transparent bg-background",
+        scrolled
+          ? "border-b border-border bg-background"
+          : "border-b border-transparent bg-background",
       )}
     >
       <div className="container-editorial relative flex h-16 items-center justify-between gap-3 px-4 sm:px-6 md:gap-6">
@@ -95,9 +97,7 @@ export function SiteHeader() {
         <nav className="hidden flex-1 items-center justify-center gap-0.5 md:flex">
           {links.map((link) => {
             const active =
-              link.to === "/"
-                ? location.pathname === "/"
-                : location.pathname.startsWith(link.to);
+              link.to === "/" ? location.pathname === "/" : location.pathname.startsWith(link.to);
             return (
               <Link
                 key={link.to}
@@ -121,7 +121,14 @@ export function SiteHeader() {
             className="cta-energy max-md:!hidden items-center gap-2 px-6 py-2.5 text-sm"
           >
             Get a quote
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
               <path d="M5 12h14M13 6l6 6-6 6" />
             </svg>
           </Link>
@@ -138,9 +145,7 @@ export function SiteHeader() {
                 </button>
               </DialogPrimitive.Trigger>
               <DialogPrimitive.Portal>
-                <DialogPrimitive.Overlay
-                  className="fixed inset-0 z-[100] bg-background/80 data-[state=open]:anim-mobile-menu-overlay-open data-[state=closed]:anim-mobile-menu-overlay-closed motion-reduce:animate-none motion-reduce:opacity-100"
-                />
+                <DialogPrimitive.Overlay className="fixed inset-0 z-[100] bg-background/80 data-[state=open]:anim-mobile-menu-overlay-open data-[state=closed]:anim-mobile-menu-overlay-closed motion-reduce:animate-none motion-reduce:opacity-100" />
                 <DialogPrimitive.Content
                   aria-describedby={undefined}
                   className="fixed inset-0 z-[100] flex max-h-[100dvh] flex-col overflow-hidden bg-background text-foreground outline-none [will-change:transform,opacity] data-[state=open]:anim-mobile-menu-content-open data-[state=closed]:anim-mobile-menu-content-closed motion-reduce:animate-none motion-reduce:opacity-100"
@@ -152,13 +157,16 @@ export function SiteHeader() {
                       "flex shrink-0 items-center justify-between border-b border-border px-4 py-4 sm:px-6 anim-mobile-menu-topbar motion-reduce:animate-none",
                     )}
                   >
-                    <Link
-                      to="/"
-                      className="shrink-0"
-                      onClick={() => setMobileOpen(false)}
-                    >
+                    <Link to="/" className="shrink-0" onClick={() => setMobileOpen(false)}>
                       <span aria-hidden className={BRAND_LOGO_FRAME}>
-                        <img src={logoSrc} alt="" width={512} height={512} className={BRAND_LOGO_IMG} decoding="async" />
+                        <img
+                          src={logoSrc}
+                          alt=""
+                          width={512}
+                          height={512}
+                          className={BRAND_LOGO_IMG}
+                          decoding="async"
+                        />
                       </span>
                     </Link>
                     <DialogPrimitive.Close
@@ -204,7 +212,14 @@ export function SiteHeader() {
                       className="cta-energy flex min-h-12 w-full items-center justify-center gap-2 px-5 py-3 text-base [touch-action:manipulation]"
                     >
                       Get a quote
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
                         <path d="M5 12h14M13 6l6 6-6 6" />
                       </svg>
                     </Link>

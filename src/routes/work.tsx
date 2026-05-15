@@ -33,8 +33,8 @@ function WorkPage() {
           <span className="border-b-[3px] border-primary pb-0.5">store</span>.
         </h1>
         <p className="mt-6 max-w-2xl text-muted-foreground md:text-base">
-          Each card matches a type of work we produce — photos are from the same jobs we ship for
-          shops, fleets, and events. Tap through for details and a quote.
+          Each card shows a type of work we do. Photos are from real jobs we deliver for shops,
+          vehicles, and events. Tap for details and a quote.
         </p>
       </section>
 

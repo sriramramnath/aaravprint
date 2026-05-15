@@ -1,11 +1,4 @@
-import {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-  type TransitionEvent,
-} from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type TransitionEvent } from "react";
 import { Link } from "@tanstack/react-router";
 import type { Project } from "@/data/projects";
 import { Button } from "@/components/ui/button";
@@ -32,10 +25,7 @@ export function ProjectCard({ project }: Props) {
     return project.images[0] ? [project.images[0]] : [];
   }, [frames, project.images]);
   /** Extra slot clones first slide so we can slide forward from last → first without rewinding the strip. */
-  const strip = useMemo(
-    () => (slides.length > 1 ? [...slides, slides[0]!] : slides),
-    [slides],
-  );
+  const strip = useMemo(() => (slides.length > 1 ? [...slides, slides[0]!] : slides), [slides]);
   const slotCount = strip.length;
   const [slideIndex, setSlideIndex] = useState(0);
   const [stripJump, setStripJump] = useState(false);
@@ -157,7 +147,11 @@ export function ProjectCard({ project }: Props) {
         <div className="space-y-3 p-6">
           <div className="flex items-baseline justify-between gap-4">
             <h3 className="font-display text-xl font-semibold text-white md:text-2xl">
-              <Link to="/work/$slug" params={{ slug: project.slug }} className="transition-colors hover:text-primary">
+              <Link
+                to="/work/$slug"
+                params={{ slug: project.slug }}
+                className="transition-colors hover:text-primary"
+              >
                 {project.name}
               </Link>
             </h3>

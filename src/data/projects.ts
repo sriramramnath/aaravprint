@@ -40,9 +40,9 @@ export const projects: Project[] = [
     client: "Aarav Signboard",
     category: "Illuminated signage",
     year: "2024",
-    tagline: "Bright, efficient LED name boards and shop fascias.",
+    tagline: "Bright LED name boards for shops and offices.",
     description:
-      "We fabricate and install LED signboards for retail, restaurants, and offices. Colour-accurate printing, even glow, and weather-ready builds that stay sharp after dark and in monsoon season.",
+      "We make and install LED signboards for shops, restaurants, and offices. Colors look great, the glow is even, and the boards can handle rain and sun.",
     scope: ["Design support", "LED module layout", "Fabrication", "On-site install"],
     metrics: [
       { label: "Custom sizes", value: "Yes" },
@@ -58,9 +58,9 @@ export const projects: Project[] = [
     client: "Aarav Signboard",
     category: "Illuminated signage",
     year: "2024",
-    tagline: "Even backlighting and crisp graphics for premium facades.",
+    tagline: "Even lighting and clear graphics for your shop front.",
     description:
-      "Backlit flex and board solutions that make logos pop at night. We match brand colours, align mounting, and use first-quality materials for a smooth, flatter look.",
+      "Backlit boards that make your logo stand out at night. We match your brand colors and use good materials for a clean look.",
     scope: ["Backlit flex", "Frame & trim", "Power layout", "Installation"],
     metrics: [
       { label: "Indoor & outdoor", value: "Both" },
@@ -76,9 +76,9 @@ export const projects: Project[] = [
     client: "Aarav Signboard",
     category: "Facade & branding",
     year: "2024",
-    tagline: "Durable ACP panels with clean joints and long-lasting print.",
+    tagline: "Strong ACP panels with a clean finish and long-lasting print.",
     description:
-      "Aluminium composite panel signage for showrooms, clinics, and buildings. Rigid, modern finish with UV printing or vinyl — sized to your architect’s or brand guidelines.",
+      "Aluminium panel signs for showrooms, clinics, and buildings. Modern look with UV print or vinyl. Sized as per your needs.",
     scope: ["ACP supply", "CNC / routing", "Vinyl or UV print", "Fixing & sealing"],
     metrics: [
       { label: "Panel thicknesses", value: "3–4 mm" },
@@ -94,9 +94,9 @@ export const projects: Project[] = [
     client: "Aarav Signboard",
     category: "Outdoor signage",
     year: "2024",
-    tagline: "Visible branding above entrances and driveways.",
+    tagline: "Clear branding above entrances and driveways.",
     description:
-      "Canopy signage that survives sun and rain: structured mounting, legible type, and finishes matched to your storefront. Ideal for retail, fuel stations, and hospitality.",
+      "Canopy signs that last in sun and rain. Good mounting, clear text, and finishes that match your store. Great for shops, fuel stations, and hotels.",
     scope: ["Canopy design", "Metal / flex", "Illumination opt.", "Install"],
     metrics: [
       { label: "Weather-rated", value: "Yes" },
@@ -112,9 +112,9 @@ export const projects: Project[] = [
     client: "Aarav Signboard",
     category: "Premium plates",
     year: "2024",
-    tagline: "Engraved and etched name plates in brass and stainless steel.",
+    tagline: "Name plates in brass and stainless steel.",
     description:
-      "Elegant name boards for homes, offices, and institutions. We work with etching, cut-through letters, and protective clear coats for a lasting metallic finish.",
+      "Beautiful name boards for homes, offices, and institutions. We use etching, cut-through letters, and clear coating for a finish that lasts.",
     scope: ["Brass / SS", "Etch & paint fill", "Mounting hardware", "Polishing"],
     metrics: [
       { label: "Metals", value: "Brass · SS" },
@@ -130,9 +130,9 @@ export const projects: Project[] = [
     client: "Aarav Signboard",
     category: "Premium plates",
     year: "2024",
-    tagline: "Classic brass plates with crisp lettering and depth.",
+    tagline: "Classic brass plates with clear lettering.",
     description:
-      "Traditional brass name plates for doors, desk plaques, and memorials. Options include deep etch, two-tone fill, and subtle brushed or mirror polish.",
+      "Traditional brass name plates for doors, desks, and memorials. Options include deep etch, two-tone fill, and brushed or mirror polish.",
     scope: ["Design layout", "Etching", "Colour fill", "Mounting"],
     metrics: [
       { label: "Indoor & outdoor", value: "Both" },
@@ -148,9 +148,9 @@ export const projects: Project[] = [
     client: "Aarav Signboard",
     category: "Shopfront",
     year: "2024",
-    tagline: "Perpendicular boards that catch foot traffic on the high street.",
+    tagline: "Side boards that catch the eye of people walking by.",
     description:
-      "Flange or ‘lollipop’ boards that project from the wall — perfect when passers-by walk parallel to the shop. Sturdy frame, high-impact print, and compliant mounting.",
+      "Boards that stick out from the wall. Great for when people walk past your shop. Strong frame, clear print, and proper mounting.",
     scope: ["Metal / acrylic frame", "Double-sided print", "Bracketing", "Install"],
     metrics: [
       { label: "Double-sided", value: "Yes" },
@@ -166,9 +166,9 @@ export const projects: Project[] = [
     client: "Aarav Signboard",
     category: "Retail & events",
     year: "2024",
-    tagline: "Portable wooden A-frames and easel-style boards.",
+    tagline: "Portable wooden sign boards for daily use.",
     description:
-      "Solid-looking wood standees for daily specials, wayfinding, and pop-ups. We print on board or apply vinyl to timber-style bases — stable and easy to move.",
+      "Solid wood boards for daily offers, directions, and pop-ups. We print on board or apply vinyl to wooden bases. Stable and easy to move.",
     scope: ["Wood / composite stand", "Print or chalk area", "Brand artwork", "Finish"],
     metrics: [
       { label: "Reusable", value: "Yes" },
@@ -184,9 +184,9 @@ export const projects: Project[] = [
     client: "Aarav Signboard",
     category: "Display",
     year: "2024",
-    tagline: "Framed lightboxes and poster-style displays for interiors.",
+    tagline: "Framed displays and light boxes for indoors.",
     description:
-      "Slim and snap frames for menus, price lists, and gallery-style displays. Swappable graphics, clean borders, and wall-safe mounting for offices and stores.",
+      "Thin frames for menus, price lists, and displays. Change the graphic easily, clean borders, and safe wall mounting for offices and stores.",
     scope: ["Frame profiles", "Backlit or non-lit", "Print media", "Mounting"],
     metrics: [
       { label: "Swappable art", value: "Yes" },
@@ -202,9 +202,9 @@ export const projects: Project[] = [
     client: "Aarav Signboard",
     category: "Events & trade shows",
     year: "2024",
-    tagline: "Lightweight roll-up banners in premium cassette stands.",
+    tagline: "Lightweight roll-up banners in good quality stands.",
     description:
-      "Event-ready standees with wrinkle-resistant prints, padded bags, and smooth retractors. We align artwork to safe zones so logos never get trimmed at the edges.",
+      "Ready-to-use stands with prints that don’t wrinkle, padded bags, and smooth rollers. We make sure your logos are never cut off at the edges.",
     scope: ["Stand hardware", "Anti-curl print", "Carry case", "Artwork check"],
     metrics: [
       { label: "85 × 200 cm", value: "Std" },
@@ -220,9 +220,9 @@ export const projects: Project[] = [
     client: "Aarav Signboard",
     category: "Events",
     year: "2024",
-    tagline: "Branded counter tables for sampling and exhibitions.",
+    tagline: "Branded tables for events and exhibitions.",
     description:
-      "Collapsible promo tables with full-wrap branding for launches and retail activations. Sturdy top, easy setup, and graphics that line up on every edge.",
+      "Foldable tables with full-wrap branding for product launches and events. Sturdy top, easy setup, and graphics that line up on all sides.",
     scope: ["Table frame", "Stretch / panel print", "Storage bag", "Setup guide"],
     metrics: [
       { label: "Portable", value: "Yes" },
@@ -238,9 +238,9 @@ export const projects: Project[] = [
     client: "Aarav Signboard",
     category: "Events & stage",
     year: "2024",
-    tagline: "Seam-considerate backdrops for stage, photo, and press walls.",
+    tagline: "Backdrops for stages, photos, and events.",
     description:
-      "Large-format flex backdrops for events and studios. We plan panel joins, grommets, and stand-off mounting so your logo reads well on camera and in person.",
+      "Large flex backdrops for events and studios. We plan the panels so your logo looks good on camera and in person.",
     scope: ["Wide flex print", "Pipe & drape opt.", "Pipe pockets", "Install"],
     metrics: [
       { label: "Custom width", value: "Yes" },
@@ -256,9 +256,9 @@ export const projects: Project[] = [
     client: "Aarav Signboard",
     category: "Vinyl & wraps",
     year: "2024",
-    tagline: "High-tack vehicle and surface vinyl with clean pasting.",
+    tagline: "Strong vinyl for vehicles and surfaces with clean pasting.",
     description:
-      "Branding and safety markings on glass, body panels, and equipment. We use outdoor-grade films, precise cutting, and bubble-free application on curves and flat areas.",
+      "Branding and safety marks on glass, body panels, and equipment. We use outdoor-grade films, precise cutting, and no-bubble application on curves and flat areas.",
     scope: ["Vinyl cut & print", "Lamination", "Wet or dry install", "Removal tips"],
     metrics: [
       { label: "UV laminate", value: "Yes" },
@@ -274,9 +274,9 @@ export const projects: Project[] = [
     client: "Aarav Signboard",
     category: "Fleet & transit",
     year: "2024",
-    tagline: "Large-format bus wraps and window branding.",
+    tagline: "Large bus wraps and window branding.",
     description:
-      "Perforated and opaque films sized for public transport. We work from vehicle templates, align registration marks, and plan seams around doors and frames.",
+      "Perforated and solid films for buses and public transport. We work from vehicle templates and plan seams around doors and frames.",
     scope: ["Template check", "Perforated opt.", "Panel install", "Edge seal"],
     metrics: [
       { label: "Regulatory", value: "Check local" },
@@ -292,9 +292,9 @@ export const projects: Project[] = [
     client: "Aarav Signboard",
     category: "Fabrication",
     year: "2024",
-    tagline: "CNC and plotter cutting for letters, stencils, and layers.",
+    tagline: "Machine cutting for letters, stencils, and layers.",
     description:
-      "Accurate inner cuts for acrylic, board, and vinyl stacks — great for layered logos, window frosting patterns, and packaging prototypes.",
+      "Accurate cuts for acrylic, board, and vinyl stacks. Great for layered logos, window patterns, and packaging samples.",
     scope: ["Vector file check", "Router / plotter", "Weed & mask", "Kit packing"],
     metrics: [
       { label: "Tight radii", value: "Yes" },
@@ -310,9 +310,9 @@ export const projects: Project[] = [
     client: "Aarav Signboard",
     category: "Construction & sites",
     year: "2024",
-    tagline: "Site hoardings and mesh banners for long outdoor runs.",
+    tagline: "Site boards and mesh banners for long outdoor use.",
     description:
-      "High-visibility site branding on flex and mesh. Wind-load friendly options, repeat panels for long fences, and clear sponsor hierarchy on construction sites.",
+      "High-visibility site branding on flex and mesh. Options for wind, repeat panels for long fences, and clear sponsor names on construction sites.",
     scope: ["Mesh / flex", "Eyelet spacing", "Rope & tie-down", "Install team"],
     metrics: [
       { label: "Long runs", value: "Yes" },
@@ -328,9 +328,9 @@ export const projects: Project[] = [
     client: "Aarav Signboard",
     category: "Outdoor promo",
     year: "2024",
-    tagline: "Printed umbrellas for cafés, poolsides, and outdoor events.",
+    tagline: "Printed umbrellas for cafes, pools, and outdoor events.",
     description:
-      "Dye-sublimation or panel prints on garden umbrellas. Strong colour on panels, aligned repeats, and finish that handles sun and light rain.",
+      "Printed panels on garden umbrellas. Strong colors, aligned patterns, and a finish that handles sun and light rain.",
     scope: ["Panel layout", "Fabric print", "Frame assembly", "Carry cover"],
     metrics: [
       { label: "Panel match", value: "Checked" },
@@ -346,9 +346,9 @@ export const projects: Project[] = [
     client: "Aarav Signboard",
     category: "Structures",
     year: "2024",
-    tagline: "MS welded arches for entry gates and event entrances.",
+    tagline: "Metal welded arches for gates and event entrances.",
     description:
-      "Mild-steel arch frames for branding spans — powder coat, wrapped flex, or cut lettering. We coordinate welding, primer, and safe on-site erection with your civil team.",
+      "Mild-steel arch frames for branding. We handle welding, primer, painting, and safe on-site setup with your team.",
     scope: ["Shop drawings", "Fabrication", "Primer & paint", "Erection support"],
     metrics: [
       { label: "Custom span", value: "Yes" },
@@ -364,9 +364,9 @@ export const projects: Project[] = [
     client: "Aarav Signboard",
     category: "Kiosks",
     year: "2024",
-    tagline: "Branded water booths and compact stall fascias.",
+    tagline: "Branded water booths and small stall fronts.",
     description:
-      "Full-wrap and fascia prints for small-format booths. Easy-to-clean surfaces, high-contrast branding for queues, and modular panels when you need to refit later.",
+      "Full-wrap prints for small booths. Easy-to-clean surfaces, clear branding for queues, and panels you can change later.",
     scope: ["Booth wrap", "Counter graphic", "Panel alignment", "Trim"],
     metrics: [
       { label: "Hygienic finish", value: "Opt." },
@@ -384,7 +384,7 @@ export const projects: Project[] = [
     year: "2024",
     tagline: "A mix of daily jobs — if you can describe it, we can quote it.",
     description:
-      "This gallery is a catch-all for the variety of work we do every week: one-off boards, last-minute event pieces, and custom combinations not listed as a single category. Send photos and sizes — we’ll recommend materials.",
+      "Photos of the different kinds of work we do every week: one-off boards, last-minute event pieces, and custom orders not listed as a single category. Send photos and sizes — we will suggest materials.",
     scope: ["Consultation", "Material mix", "Priority scheduling", "Pickup / install"],
     metrics: [
       { label: "Custom briefs", value: "Welcome" },

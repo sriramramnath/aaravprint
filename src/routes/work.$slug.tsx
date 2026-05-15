@@ -31,7 +31,9 @@ function ProjectError({ error, reset }: { error: Error; reset: () => void }) {
   const router = useRouter();
   return (
     <div className="container-editorial py-24 text-center">
-      <h1 className="font-display text-3xl font-bold text-white md:text-4xl">Couldn't load project</h1>
+      <h1 className="font-display text-3xl font-bold text-white md:text-4xl">
+        Couldn't load project
+      </h1>
       <p className="mt-2 text-muted-foreground">{error.message}</p>
       <button
         type="button"
@@ -107,10 +109,16 @@ function ProjectDetail() {
       <section className="border-t border-border bg-card py-20 text-card-foreground md:py-20">
         <div className="container-editorial grid gap-12 md:grid-cols-12">
           <div className="md:col-span-4">
-            <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">Produced for</p>
-            <p className="mt-2 font-display text-xl font-semibold text-white md:text-2xl">{project.client}</p>
+            <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">
+              Produced for
+            </p>
+            <p className="mt-2 font-display text-xl font-semibold text-white md:text-2xl">
+              {project.client}
+            </p>
 
-            <p className="mt-10 text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">Scope</p>
+            <p className="mt-10 text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">
+              Scope
+            </p>
             <ul className="mt-3 space-y-1.5 text-[#eaecef]">
               {project.scope.map((s) => (
                 <li key={s}>— {s}</li>
@@ -119,7 +127,9 @@ function ProjectDetail() {
           </div>
 
           <div className="md:col-span-8">
-            <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">Details</p>
+            <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">
+              Details
+            </p>
             <p className="mt-4 font-display text-xl font-semibold leading-snug text-[#eaecef] md:text-2xl text-balance">
               {project.description}
             </p>
@@ -127,7 +137,9 @@ function ProjectDetail() {
             <div className="mt-12 grid grid-cols-3 gap-6 border-t border-border pt-8">
               {project.metrics.map((m) => (
                 <div key={m.label}>
-                  <p className="font-numeric text-2xl font-semibold text-primary md:text-4xl">{m.value}</p>
+                  <p className="font-numeric text-2xl font-semibold text-primary md:text-4xl">
+                    {m.value}
+                  </p>
                   <p className="mt-1 text-xs font-medium uppercase tracking-wider text-muted-foreground">
                     {m.label}
                   </p>
@@ -146,7 +158,10 @@ function ProjectDetail() {
           <h2 className="mt-4 font-display text-4xl font-bold tracking-tight text-white md:text-5xl text-balance">
             Need something <span className="text-primary">similar?</span>
           </h2>
-          <Link to="/contact" className="cta-energy mt-10 inline-flex items-center gap-3 px-8 py-3 text-sm font-semibold">
+          <Link
+            to="/contact"
+            className="cta-energy mt-10 inline-flex items-center gap-3 px-8 py-3 text-sm font-semibold"
+          >
             Request a quote for {project.name} →
           </Link>
         </div>
@@ -154,7 +169,9 @@ function ProjectDetail() {
 
       <section className="border-t border-border bg-card py-20">
         <div className="container-editorial">
-          <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">More work</p>
+          <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">
+            More work
+          </p>
           <div className="mt-8 grid gap-8 md:grid-cols-3">
             {others.map((p) => (
               <Link
@@ -174,7 +191,9 @@ function ProjectDetail() {
                   />
                 </div>
                 <p className="mt-3 font-display text-lg font-semibold text-white">{p.name}</p>
-                <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{p.category}</p>
+                <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                  {p.category}
+                </p>
               </Link>
             ))}
           </div>
