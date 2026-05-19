@@ -39,7 +39,7 @@ export const Route = createRootRoute({
       { title: `${companyInfo.name} — ${companyInfo.tagline}` },
       {
         name: "description",
-        content: `${companyInfo.tagline}. ${companyInfo.name} — Chennai. Email: ${companyInfo.email}`,
+        content: `${companyInfo.tagline}. ${companyInfo.name} — Chennai. Email: ${companyInfo.email}, Phone: ${companyInfo.phone}`,
       },
       { name: "author", content: companyInfo.name },
       { property: "og:title", content: companyInfo.name },

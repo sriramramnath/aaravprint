@@ -205,7 +205,7 @@ export function SiteHeader() {
                     })}
                   </nav>
 
-                  <div className="shrink-0 space-y-3 border-t border-border bg-background p-4 pb-[max(1.25rem,env(safe-area-inset-bottom))] pt-4 anim-mobile-menu-footer motion-reduce:animate-none sm:px-6">
+                  <div className="shrink-0 flex flex-col gap-3 border-t border-border bg-background p-4 pb-[max(1.25rem,env(safe-area-inset-bottom))] pt-4 anim-mobile-menu-footer motion-reduce:animate-none sm:px-6">
                     <Link
                       to="/contact"
                       onClick={() => setMobileOpen(false)}
@@ -223,12 +223,20 @@ export function SiteHeader() {
                         <path d="M5 12h14M13 6l6 6-6 6" />
                       </svg>
                     </Link>
-                    <a
-                      href={`mailto:${companyInfo.email}`}
-                      className="btn-secondary-dark flex min-h-12 w-full items-center justify-center px-4 text-center text-sm font-semibold leading-tight [touch-action:manipulation] sm:text-base"
-                    >
-                      Email us
-                    </a>
+                    <div className="grid grid-cols-2 gap-3">
+                      <a
+                        href={`tel:${companyInfo.phone}`}
+                        className="btn-secondary-dark flex min-h-12 w-full items-center justify-center px-4 text-center text-sm font-semibold leading-tight [touch-action:manipulation] sm:text-base"
+                      >
+                        Call us
+                      </a>
+                      <a
+                        href={`mailto:${companyInfo.email}`}
+                        className="btn-secondary-dark flex min-h-12 w-full items-center justify-center px-4 text-center text-sm font-semibold leading-tight [touch-action:manipulation] sm:text-base"
+                      >
+                        Email us
+                      </a>
+                    </div>
                   </div>
                 </DialogPrimitive.Content>
               </DialogPrimitive.Portal>

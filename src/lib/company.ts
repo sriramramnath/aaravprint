@@ -2,6 +2,7 @@ export const companyInfo = {
   name: "Aarav Signboard",
   tagline: "A to Z signage, Digital, Printing solutions",
   email: "aaravsignboard@gmail.com",
+  phone: "+91 96001 11707",
   locations: [
     {
       label: "Company fabrication",

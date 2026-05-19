@@ -10,7 +10,7 @@ export const Route = createFileRoute("/")({
       { title: `${companyInfo.name} — ${companyInfo.tagline}` },
       {
         name: "description",
-        content: `${companyInfo.tagline} ${companyInfo.name}, Chennai. ${companyInfo.email}`,
+        content: `${companyInfo.tagline} ${companyInfo.name}, Chennai. ${companyInfo.email}, ${companyInfo.phone}`,
       },
       { property: "og:title", content: companyInfo.name },
       { property: "og:description", content: companyInfo.tagline },

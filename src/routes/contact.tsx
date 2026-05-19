@@ -123,7 +123,7 @@ function ContactPage() {
     } catch (err) {
       console.error(err);
       toast.error("Could not send the form", {
-        description: `Email us directly: ${companyInfo.email} — or try again.`,
+        description: `Email us at ${companyInfo.email}, call ${companyInfo.phone}, or try again.`,
         duration: 8000,
       });
     } finally {
@@ -154,14 +154,22 @@ function ContactPage() {
           <aside className="order-1 space-y-8 md:order-2 md:col-span-5 md:space-y-10">
             <div>
               <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">
-                Email
+                Contact
               </p>
-              <a
-                href={`mailto:${companyInfo.email}`}
-                className="micro-link mt-2 block min-h-11 break-all font-display text-lg leading-tight sm:mt-3 sm:text-2xl md:text-3xl"
-              >
-                {companyInfo.email}
-              </a>
+              <div className="mt-2 flex flex-col gap-2 sm:mt-3">
+                <a
+                  href={`mailto:${companyInfo.email}`}
+                  className="micro-link block min-h-11 break-all font-display text-lg leading-tight sm:text-2xl md:text-3xl"
+                >
+                  {companyInfo.email}
+                </a>
+                <a
+                  href={`tel:${companyInfo.phone}`}
+                  className="micro-link block min-h-11 break-all font-display text-lg leading-tight sm:text-2xl md:text-3xl"
+                >
+                  {companyInfo.phone}
+                </a>
+              </div>
             </div>
 
             <div>
@@ -338,7 +346,8 @@ function ContactPage() {
             </div>
 
             <p className="text-center text-xs text-muted-foreground [text-wrap:pretty] sm:text-left">
-              Submissions are sent to {companyInfo.email}.
+              Submissions are sent to {companyInfo.email}. For urgent requests, call us at{" "}
+              {companyInfo.phone}.
             </p>
 
             <button

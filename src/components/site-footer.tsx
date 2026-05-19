@@ -21,12 +21,20 @@ export function SiteFooter() {
               <p className="max-w-md text-sm leading-relaxed text-muted-foreground">
                 {companyInfo.tagline}
               </p>
-              <a
-                href={`mailto:${companyInfo.email}`}
-                className="micro-link w-fit text-sm font-medium"
-              >
-                {companyInfo.email}
-              </a>
+              <div className="flex flex-col gap-1">
+                <a
+                  href={`mailto:${companyInfo.email}`}
+                  className="micro-link w-fit text-sm font-medium"
+                >
+                  {companyInfo.email}
+                </a>
+                <a
+                  href={`tel:${companyInfo.phone}`}
+                  className="micro-link w-fit text-sm font-medium"
+                >
+                  {companyInfo.phone}
+                </a>
+              </div>
             </div>
             <p className="mt-8 text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">
               — Let&apos;s make something
@@ -87,6 +95,14 @@ export function SiteFooter() {
                     className="text-foreground transition-colors hover:text-primary"
                   >
                     {companyInfo.email}
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={`tel:${companyInfo.phone}`}
+                    className="text-foreground transition-colors hover:text-primary"
+                  >
+                    {companyInfo.phone}
                   </a>
                 </li>
                 <li>
