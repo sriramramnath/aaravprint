@@ -479,6 +479,70 @@
   animation: float-up 0.8s var(--ease-spring) both;
 }
 
+@keyframes hero-image-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hero-spinner-enter {
+  from {
+    opacity: 0.4;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-spinner-exit {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0.4;
+    transform: translateY(-100%);
+  }
+}
+
+.hero-spinner-viewport {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  min-width: min(100%, 22em);
+  margin-inline: auto;
+  height: 1.2em;
+  line-height: 1.08;
+}
+
+.hero-spinner-line {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  line-height: 1.08;
+  will-change: transform, opacity;
+}
+
+.hero-spinner-enter {
+  animation: hero-spinner-enter 0.56s cubic-bezier(0.22, 1.24, 0.36, 1) both;
+}
+
+.hero-spinner-exit {
+  animation: hero-spinner-exit 0.56s cubic-bezier(0.22, 1.24, 0.36, 1) both;
+}
+
+.animate-hero-image {
+  animation: hero-image-in 0.6s ease both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

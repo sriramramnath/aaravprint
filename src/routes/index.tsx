@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { projects, heroImages, homeHeroImage } from "@/data/projects";
+import { HeroHeadline } from "@/components/hero-headline";
 import { ProjectCard } from "@/components/project-card";
 import { companyInfo } from "@/lib/company";
 
@@ -24,35 +25,28 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const featured = projects.slice(0, 4);
-  const heroShuffleImages = heroImages;
-  const [activeShuffle, setActiveShuffle] = useState(0);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
 
   useEffect(() => {
-    if (heroShuffleImages.length <= 1) return;
+    if (heroImages.length <= 1) return;
     const timer = window.setInterval(() => {
-      setActiveShuffle((prev) => {
-        if (heroShuffleImages.length <= 1) return 0;
-        let next = prev;
-        while (next === prev) {
-          next = Math.floor(Math.random() * heroShuffleImages.length);
-        }
-        return next;
-      });
-    }, 2200);
+      setActiveImageIndex((prev) => (prev + 1) % heroImages.length);
+    }, 3000);
     return () => window.clearInterval(timer);
-  }, [heroShuffleImages]);
+  }, []);
 
-  const activeImage = heroShuffleImages[activeShuffle] ?? homeHeroImage;
+  const activeImage = heroImages[activeImageIndex] ?? homeHeroImage;
 
   return (
     <div>
       {/* HERO */}
       <section className="relative isolate overflow-hidden bg-background pb-16 pt-10 md:pb-20 md:pt-14">
         <img
+          key={activeImage}
           aria-hidden
           src={activeImage}
           alt=""
-          className="absolute inset-0 -z-30 h-full w-full object-cover"
+          className="animate-hero-image absolute inset-0 -z-30 h-full w-full object-cover"
         />
         <div aria-hidden className="bg-hero-veil absolute inset-0 -z-20" />
         <div aria-hidden className="absolute inset-0 -z-20 bg-black/20" />
@@ -60,16 +54,7 @@ function Index() {
         <div className="container-editorial">
           <div className="relative flex min-h-[31rem] items-center justify-center py-6 md:min-h-[40rem] md:py-10">
             <div className="animate-float-up relative z-20 flex max-w-4xl flex-col items-center px-1 pt-2 text-center md:pt-4">
-              <div className="hero-headline-glow space-y-1 font-display text-[clamp(2.25rem,10vw,4rem)] font-bold leading-[1.08] tracking-[-0.03em] text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.55)] md:text-[clamp(2.75rem,8vw,4rem)]">
-                <p className="leading-[1.08]">
-                  <span className="text-primary">Clear</span>{" "}
-                  <span className="text-white">signs.</span>
-                </p>
-                <p className="leading-[1.08]">
-                  <span className="text-primary">Quality</span>{" "}
-                  <span className="text-white">prints.</span>
-                </p>
-              </div>
+              <HeroHeadline />
 
               <p className="hero-tagline-shadow mt-8 max-w-2xl text-sm leading-relaxed text-[#eaecef] drop-shadow-[0_2px_6px_rgba(0,0,0,0.5)] md:text-base">
                 Premium sign boards, print, and installation crafted for visibility that lasts.
